@@ -36,7 +36,7 @@
           &.active > a[data-toggle="collapse"] i,
           &.active > a[data-toggle="collapse"] ~ div > ul > li.active .sidebar-mini-icon,
           &.active > a[data-toggle="collapse"] ~ div > ul > li.active > a {
-            color: $font-color;
+             color: $font-color;
             opacity: 1;
           }
         }
@@ -188,8 +188,8 @@
         a[data-toggle="collapse"] i,
         a[data-toggle="collapse"] ~ div > ul > li .sidebar-mini-icon,
         a[data-toggle="collapse"] ~ div > ul > li > a {
-          color: $text-color;
-          opacity: .7;
+          color:black;
+          // opacity: .7;
         }
 
         &:hover:not(.active) > a,

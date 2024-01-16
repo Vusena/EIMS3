@@ -3,32 +3,37 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 
-import { SidebarModule } from './sidebar/sidebar.module';
-import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
+
+
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+import { MainLayoutComponent } from './core/components/main-layout/main-layout/main-layout.component';
+import { LayoutModule } from "./core/components/layout/layout.module";
+import { AuthComponent } from './core/components/auth/auth/auth.component';
+import { HttpClientModule } from "@angular/common/http";
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AdminLayoutComponent
+  AppComponent,
+  MainLayoutComponent,
+  AuthComponent,
+  
+  
+         
+    
   ],
   imports: [
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes,{
-      useHash: true
-    }),
-    SidebarModule,
-    NavbarModule,
+    RouterModule.forRoot(AppRoutes,{ useHash: true  }),
+    LayoutModule,
     ToastrModule.forRoot(),
-    FooterModule,
-    FixedPluginModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,21 @@
+.color{
+    background-color: white;
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    }
+    
+    .search-form form {
+    display: flex;
+    border: none;
+    }
+    
+    .search-form i {
+    margin-right: 5px;
+    }
+    
+    .search-form input {
+    border: none;
+    outline: none;
+    }

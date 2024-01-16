@@ -3,6 +3,7 @@
     padding-bottom: $navbar-padding-base;
     min-height: 53px;
     margin-bottom: 20px;
+    width:800px;
 
     a{
         vertical-align: middle;
@@ -18,21 +19,21 @@
 
 
 
-    &.bg-white{
-      .input-group .form-control,
-      .input-group.no-border .form-control{
-        color: $default-color;
+    // &.bg-white{
+    //   .input-group .form-control,
+    //   .input-group.no-border .form-control{
+    //     color: $default-color;
 
-        @include placeholder(){
-          color: $default-color;
-        };
-      }
-      .input-group-prepend .input-group-text i,
-      .input-group-append .input-group-text i{
-        color: $default-color;
-        opacity: .5;
-      }
-    }
+    //     @include placeholder(){
+    //       color: $default-color;
+    //     };
+    //   }
+    //   .input-group-prepend .input-group-text i,
+    //   .input-group-append .input-group-text i{
+    //     color: $default-color;
+    //     opacity: .5;
+    //   }
+    // }
 
     .form-group,
     .input-group{
@@ -50,15 +51,15 @@
         }
       }
 
-      &.no-border{
-        .form-control{
-          color: $default-color;
+    //   &.no-border{
+    //     .form-control{
+    //       color: $default-color;
 
-          @include placeholder(){
-            color: $default-color;
-          };
-        }
-      }
+    //       @include placeholder(){
+    //         color: $default-color;
+    //       };
+    //     }
+    //   }
     }
 
     p{
@@ -188,24 +189,24 @@
     }
 
     .navbar-brand{
-        text-transform: capitalize;
-        font-size: $font-size-large-navbar;
-        padding-top: $padding-base-vertical;
-        padding-bottom: $padding-base-vertical;
-        line-height: $line-height-nav-link;
+       font-weight:550;
+       font-family: 'Roboto';
+       font-size:24px;
+       color:#570c0c;
+       
     }
 
     .navbar-toggler{
-        width: 37px;
+        width: 28px;
         height: 27px;
         vertical-align: middle;
         outline: 0;
         cursor: pointer;
 
         & .navbar-toggler-bar.navbar-kebab{
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
+            width: 2px;
+            height: 2px;
+            border-radius: 8%;
             margin: 0 auto;
         }
     }
@@ -217,13 +218,10 @@
     }
 
     &.navbar-transparent{
-      background-color: $transparent-bg !important;
       box-shadow: none;
       border-bottom: 1px solid #ddd;
-
       a:not(.dropdown-item):not(.btn){
         color: $default-color;
-
         &.disabled{
           opacity: .5;
           color: $default-color;
@@ -235,8 +233,9 @@
        }
 
       .nav-item .nav-link:not(.btn){
-        color: $default-color;
+        color: black;
       }
+
       .nav-item.active .nav-link:not(.btn),
       .nav-item .nav-link:not(.btn):focus,
       .nav-item .nav-link:not(.btn):hover,
@@ -281,30 +280,30 @@
     }
 }
 
-.bg-default{
-    background-color: $default-color !important;
-}
+// .bg-default{
+//     background-color: $default-color !important;
+// }
 
-.bg-primary{
-    background-color: $primary-color !important;
-}
+// .bg-primary{
+//     background-color: $primary-color !important;
+// }
 
-.bg-info{
-    background-color: $info-color !important;
-}
+// .bg-info{
+//     background-color: $info-color !important;
+// }
 
-.bg-success{
-    background-color: $success-color !important;
-}
+// .bg-success{
+//     background-color: $success-color !important;
+// }
 
-.bg-danger{
-    background-color: $danger-color !important;
-}
+// .bg-danger{
+//     background-color: $danger-color !important;
+// }
 
-.bg-warning{
-    background-color: $warning-color !important;
-}
+// .bg-warning{
+//     background-color: $warning-color !important;
+// }
 
-.bg-white{
-    background-color: $white-color !important;
-}
+// .bg-white{
+//     background-color: $white-color !important;
+// }
