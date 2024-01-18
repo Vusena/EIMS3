@@ -13,6 +13,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "skipLibCheck": true,
     "target": "ES2022",
     "module": "es2020",
     "lib": [
@@ -21,4 +22,5 @@
     ],
     "useDefineForClassFields": false
   }
+  
 }

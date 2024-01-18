@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     NgbModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   exports:[
     FooterComponent,

@@ -27,8 +27,9 @@
 
     .navbar{
         .container-fluid{
+          // padding-left: 15px; this was the initial value
             padding-right: 15px;
-            padding-left: 15px;
+            padding-left: 0px;
         }
 
         .navbar-collapse{

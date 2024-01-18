@@ -7,18 +7,18 @@ import { AuthComponent } from './core/components/auth/auth/auth.component';
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'sign-in',
     pathMatch: 'full',
   },
 
-  // {
-  //   path: '',
-  //   component: AuthComponent,
-  //   children: [
-  //       {
-  //     path: '',
-  //     loadChildren: () => import('./core/components/auth/auth/auth.module').then(x => x.AuthModule)
-  // }]},
+  {
+    path: '',
+    component: AuthComponent,
+    children: [
+        {
+      path: '',
+      loadChildren: () => import('./core/components/auth/auth/auth.module').then(x => x.AuthModule)
+  }]},
 
 
   {

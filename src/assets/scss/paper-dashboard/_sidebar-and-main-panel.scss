@@ -2,6 +2,7 @@
     position: relative;
     top: 0;
     height: 100vh;
+    // background-image: url('../../img/main/dashboard-bg.svg');
    
     &.wrapper-full-page{
         min-height: 100vh;
@@ -283,18 +284,18 @@
     display: none !important;
 }
 
-.off-canvas-sidebar{
-    .nav {
-        > li > a,
-        > li > a:hover{
-             color: $white-color;
-        }
+// .off-canvas-sidebar{
+//     .nav {
+//         > li > a,
+//         > li > a:hover{
+//              color: #FBE4E4;
+//         }
 
-        > li > a:focus{
-             background: rgba(200, 200, 200, 0.2);
-        }
-    }
-}
+//         > li > a:focus{
+//              background: #CB1D1C;
+//         }
+//     }
+// }
 
 
 .main-panel{

@@ -1,7 +1,8 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ToastrModule } from "ngx-toastr";
+import { BrowserModule } from "@angular/platform-browser";
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -17,6 +18,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 
 
+
 @NgModule({
   declarations: [
   AppComponent,
@@ -29,9 +31,10 @@ import { HttpClientModule } from "@angular/common/http";
   ],
   imports: [
     BrowserAnimationsModule,
+    BrowserModule,
     RouterModule.forRoot(AppRoutes,{ useHash: true  }),
     LayoutModule,
-    ToastrModule.forRoot(),
+    // ToastrModule.forRoot(),
     HttpClientModule,
     RouterModule
   ],

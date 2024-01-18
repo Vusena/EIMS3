@@ -19,49 +19,52 @@
     <div class="collapse navbar-collapse justify-content-end " id="collapseExample" [ngbCollapse]="isCollapsed">
 
       <form>
-        <div class="input-group no-border">
-          <div class="input-group-append">
-            <span class="input-group-text  ml-3">
-              <i class="nc-icon nc-zoom-split "></i>
-            </span>
+        <div class="input-group lower-border">
+          <div class="input-group-prepend ">
+            <div class="input-group-text">
+              <i class="nc-icon nc-zoom-split mr-4"></i>
+            </div>
           </div>
-         
           <input type="text" value class="form-control" placeholder="Search..." />
-         
-        </div>
+          </div>
       </form>
 
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link btn-magnify" href="javascript:void(0)">
-            <i class="nc-icon nc-layout-11"></i>
-            <p>
-              <span class="d-lg-none d-md-block">Stats</span>
-            </p>
-          </a>
+     
+
+         <li class="nav-item"> 
+          <div class="media align-items-center"> 
+                         <mat-icon class="small-icon">person</mat-icon> 
+              <span class="mb-0 text-sm  font-weight-bold">Eunice Vusena</span>
+          
+          </div>
         </li>
 
         <li class="nav-item btn-rotate" ngbDropdown placement="bottom-left">
           <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink">
             <i class="nc-icon nc-bell-55"></i>
             <p>
-              <span class="d-lg-none d-md-block">Some Actions</span>
+              <span class="d-lg-none d-md-block">Welcome</span>
             </p>
           </a>
-          <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
-            <a ngbDropdownItem href="javascript:void(0)">Action</a>
-            <a ngbDropdownItem href="javascript:void(0)">Another action</a>
-            <a ngbDropdownItem href="javascript:void(0)">Something else here</a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-end">
+            <a ngbDropdownItem href="javascript:void(0)">My profile</a>
+            <a ngbDropdownItem href="javascript:void(0)">Settings</a>
+            <a ngbDropdownItem href="javascript:void(0)">Activity</a>
           </div>
         </li>
-        <li class="nav-item">
+
+       
+
+        <!-- <li class="nav-item">
           <a class="nav-link btn-rotate" href="javascript:void(0)">
             <i class="nc-icon nc-settings-gear-65"></i>
             <p>
               <span class="d-lg-none d-md-block">Account</span>
             </p>
           </a>
-        </li>
+        </li> -->
+        
       </ul>
     </div>
   </div>

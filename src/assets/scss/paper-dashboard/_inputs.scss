@@ -4,10 +4,10 @@
 
 
 .form-control {
-    background-color: $white-color;
-    border: 1px solid $medium-gray;
+    // background-color: $white-color;
+    border: none;
     border-radius: $border-radius-base;
-    color: $font-color;
+    // color: $font-color;
     line-height: normal;
     font-size: $font-size-base;
     @include transition-input-focus-color();
@@ -103,36 +103,36 @@
   }
 }
 
-// .form-group.no-border,
-// .input-group.no-border{
-//     .form-control,
-//     .form-control + .input-group-prepend .input-group-text,
-//     .form-control + .input-group-append .input-group-text{
-//         background-color: $opacity-gray-3;
-//         border: medium none;
-//         &:focus,
-//         &:active,
-//         &:active{
-//             border: medium none;
-//             background-color: $opacity-gray-5;
-//         }
-//     }
+.form-group.no-border,
+.input-group.no-border{
+    .form-control,
+    .form-control + .input-group-prepend .input-group-text,
+    .form-control + .input-group-append .input-group-text{
+        // background-color: $opacity-gray-3;
+        border: none;
+        &:focus,
+        &:active,
+        &:active{
+            border: medium none;
+            // background-color: $opacity-gray-5;
+        }
+    }
 
-//     .form-control{
-//         &:focus{
-//             & + .input-group-prepend .input-group-text,
-//             & + .input-group-append .input-group-text{
-//                 background-color: $opacity-gray-5;
-//             }
-//         }
-//     }
+    .form-control{
+        &:focus{
+            & + .input-group-prepend .input-group-text,
+            & + .input-group-append .input-group-text{
+                // background-color: $opacity-gray-5;
+            }
+        }
+    }
 
-//     .input-group-prepend .input-group-text,
-//     .input-group-append .input-group-text{
-//         background-color: $opacity-gray-3;
-//         border: none;
-//     }
-// }
+    .input-group-prepend .input-group-text,
+    .input-group-append .input-group-text{
+        background-color: $opacity-gray-3;
+        border: none;
+    }
+}
 
 .no-border{
     border: none !important;
@@ -177,86 +177,86 @@
 }
 
 
-// .input-group-focus{
-//   .input-group-prepend .input-group-text,
-//   .input-group-append .input-group-text{
-//     background-color: $white-bg;
-//     border-color: $dark-gray;
-//   }
+.input-group-focus{
+  .input-group-prepend .input-group-text,
+  .input-group-append .input-group-text{
+    background-color: $white-bg;
+    border-color: $dark-gray;
+  }
 
-//   &.no-border{
-//     .input-group-prepend .input-group-text,
-//     .input-group-append .input-group-text{
-//       background-color: $opacity-gray-5;
-//     }
-//   }
+  &.no-border{
+    .input-group-prepend .input-group-text,
+    .input-group-append .input-group-text{
+      background-color: $opacity-gray-5;
+    }
+  }
 
-//   &.has-danger {
-//     .input-group-append,
-//     .input-group-prepend {
-//       .input-group-text {
-//         background-color: $danger-input-bg;
-//       }
-//     }
-//   }
+  &.has-danger {
+    .input-group-append,
+    .input-group-prepend {
+      .input-group-text {
+        background-color: $danger-input-bg;
+      }
+    }
+  }
 
-//   &.has-success {
-//     .input-group-append,
-//     .input-group-prepend {
-//       .input-group-text {
-//         background-color: $success-input-bg;
-//         border: 1px solid $success-color;
-//         border-right: none;
-//       }
-//     }
-//   }
-// }
+  &.has-success {
+    .input-group-append,
+    .input-group-prepend {
+      .input-group-text {
+        background-color: $success-input-bg;
+        border: 1px solid $success-color;
+        border-right: none;
+      }
+    }
+  }
+}
 
-// .input-group-append .input-group-text,
-// .input-group-prepend .input-group-text {
-//     background-color: transparent;
-//     border: 1px solid $light-gray;
-//     color: $default-color;
-//     border-top-right-radius: $border-radius-base;
-//     border-bottom-right-radius: $border-radius-base;
+.input-group-append .input-group-text,
+.input-group-prepend .input-group-text {
+    background-color: transparent;
+    border: 1px solid $light-gray;
+    color: $default-color;
+    border-top-right-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
 
-//     & i{
-//       opacity: .5;
-//     }
+    & i{
+      opacity: .5;
+    }
 
-//     @include transition-input-focus-color();
+    @include transition-input-focus-color();
 
-//     .has-danger &{
-//       background-color: $danger-input-bg;
-//     }
-//     .has-success &{
-//       background-color: $success-input-bg;
-//     }
-//     .has-danger.input-group-focus &{
-//       background-color: $white-color;
-//       color: $danger-color;
-//     }
-//     .has-success.input-group-focus &{
-//       background-color: $white-color;
-//       color: $success-color;
-//     }
-//     .has-danger .form-control:focus + &{
-//       color: $danger-color;
-//     }
-//     .has-success .form-control:focus + &{
-//       color: $success-color;
-//     }
+    .has-danger &{
+      background-color: $danger-input-bg;
+    }
+    .has-success &{
+      background-color: $success-input-bg;
+    }
+    .has-danger.input-group-focus &{
+      background-color: $white-color;
+      color: $danger-color;
+    }
+    .has-success.input-group-focus &{
+      background-color: $white-color;
+      color: $success-color;
+    }
+    .has-danger .form-control:focus + &{
+      color: $danger-color;
+    }
+    .has-success .form-control:focus + &{
+      color: $success-color;
+    }
 
-//     & + .form-control,
-//     & ~ .form-control{
-//         @include input-size($padding-base-vertical - 1, $padding-base-horizontal);
-//         padding-left: 18px;
-//     }
+    & + .form-control,
+    & ~ .form-control{
+        @include input-size($padding-base-vertical - 1, $padding-base-horizontal);
+        padding-left: 18px;
+    }
 
-//     i{
-//         width: 17px;
-//     }
-// }
+    i{
+        width: 17px;
+    }
+}
 
 .input-group-append,
 .input-group-prepend{
