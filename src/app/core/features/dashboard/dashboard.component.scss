@@ -1,0 +1,55 @@
+.header-nav {
+    height: 50px;
+    width: 100vw;
+    background-color: #FFFFFF;
+    padding-left: 30px;
+    opacity: 1;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-bottom: 15px;
+    position: sticky;
+  }
+  .dashboard-heading{
+    font-family: "Roboto";
+    font-size:20px;
+    font-weight: 700;
+  }
+
+.card1 {
+    height: 720px;
+    width: 326px;
+    padding-left: 20px;
+    position: absolute;
+    background-color: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    border-radius: 15px;
+    opacity: 0.9;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 10px;
+
+
+}
+
+
+
+.text1 {
+    font-weight: 800;
+    font-family: "Roboto";
+    text-align: center;
+    font-size: 20px;
+    color: #741110;
+    white-space: nowrap;
+    padding-top: 20px;
+}
+
+
+.text2 {
+    color: #133B3A;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Roboto";
+    text-align: left;
+    white-space: nowrap;
+
+}

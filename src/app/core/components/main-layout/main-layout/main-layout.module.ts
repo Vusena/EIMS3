@@ -14,6 +14,9 @@ import { PoliciesComponent } from 'app/core/features/policies/policies.component
 import { FaqsComponent } from 'app/core/features/faqs/faqs.component';
 import { LogOutComponent } from 'app/core/features/log-out/log-out.component';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { LogOutComponent } from 'app/core/features/log-out/log-out.component';
   imports: [
     CommonModule,
     MainLayoutRoutingModule,
-    LayoutModule
+    LayoutModule,
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class MainLayoutModule { }
