@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-individual-conflict',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndividualConflictComponent implements OnInit {
 
+
+  secondFormGroup: FormGroup;
+  firstFormGroup: FormGroup;
+  isLinear: boolean;
   constructor() { }
 
   ngOnInit(): void {

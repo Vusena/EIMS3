@@ -1,1 +1,293 @@
-<p>group-conflict works!</p>
+<div class="container p-0 ">
+  <div>
+    <nav class="navbar header-nav">
+      <span class="dashboard-heading">Group Conflict of Interest Declaration</span>
+    </nav>
+  </div>
+
+  <div class="container align-items-center">
+    <div class="row justify-content-md-center">
+
+
+      <!-- COLUMN 1 -->
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="container  card1">
+          <div class="row">
+
+            <div class="col-12 p-3">
+              <p class="fw-semibold" style="color: #741110; font-size: 20px;font-family:'Roboto';">Group Members
+              </p>
+            </div>
+
+            <div class="col-12 pt-1 ps-3">
+              
+              <p class="" style="color: #133B3A; font-size: 15px; font-weight: 600; font-family:'Roboto';">Add Members
+                to
+                Whitelist
+              </p>
+            </div>
+          </div>
+
+
+          <div class="row mt-3">
+            <div class="col-12">
+              <div class="search-container">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Search by Name or P.No" class="search-bar">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col">
+
+              <!-- Container btn-group is used to style a group of buttons -->
+              <div class="btn-group">
+                <!-- Inside the button group, there's a button with the text "Chairman": -->
+                <button type="button" class="btn">Chairman</button>
+                <!-- another <div> element with the class "btn-group" which contains a dropdown menu: -->
+                <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                  <!--Inside this div there's a link that serves as the dropdown toggle trigger: -->
+                  <a class="btn " ngbDropdownToggle href="javascript:void(0);" id="dropdownMenuLink">
+
+
+                    <span class="caret"></span>
+                  </a>
+                  <!-- the dropdowm menus in list -->
+                  <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-end">
+                    <a ngbDropdownItem href="javascript:void(0)">My profile</a>
+                    <a ngbDropdownItem href="javascript:void(0)">Settings</a>
+                    <a ngbDropdownItem href="javascript:void(0)">Activity</a>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+
+          <div class="row ">
+            <div class="col-12">
+              <div class="line-container">
+                <div class="line-text">Eunice Vusena</div>
+                <i class="material-icons delete-icon">delete</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="row  add-memberbtn ">
+            <div class="col-12">
+              <button 
+                style=" width:100%; background-color: #FFFFFF; color: #707070; border: #707070 1px solid; font-size: 14px;"
+                class="btn btn-primary btn-block member-btn btn-rounded ">
+                <img src="../../../../assets/icons/main-layout-icons/add-member.svg" class="pb-1" alt="Submit Icon">
+                Add Member
+
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SECOND COLUNM -->
+      <div class="col-lg-6 col-md-6 col-sm-6 ">
+        <div class="container card3">
+          <div class="row d-flex justify-content-between pe-0">
+            <div class="col-md-4 p-0 ">
+              <p class="fw-medium " style="color: #741110; font-size: 20px; font-family:'Roboto';">Declaration Details
+              </p>
+            </div>
+            <div class="col-md-8 py-0 d-flex " style="background-color: #FBE4E4; max-height: 25px;">
+              <i class="material-icons " style="color: #741110!important;">warning</i>
+              <span class="" style="color:#133B3A; font-size: 11px; padding-top: 8px;  ">DO NOT declare if you have no
+                conflict of
+                interest!</span>
+            </div>
+          </div>
+
+
+
+          <div class="row mt-3">
+            <div class="col-md-4 p-0">
+              <div class="textfonts">Declaration Date</div>
+              <mat-form-field appearance="outline" class="p-0 xyz">
+                <input matInput [matDatepicker]="picker" style="font-size: 13px;" placeholder="09/07/2023">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4 p-0">
+              <div class="textfonts">Assignment Date</div>
+              <mat-form-field appearance="outline" class="p-0 xyz">
+                <input matInput [matDatepicker]="picker1" style="font-size: 13px; margin-left: 0;"
+                  placeholder="09/07/2023">
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4 p-0 ">
+              <div class="textfonts ">Position Held in the Assignment</div>
+              <mat-form-field class="xyz" appearance="outline">
+                <mat-select style="font-size: 13px; font-weight: bold; " placeholder="Other">
+                  <mat-option style="font-size: 13px; font-weight: bold; " value="yes">Other</mat-option>
+                  <mat-option style="font-size: 13px; font-weight: bold; " value="no">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 p-0">
+              <div class="textfonts">Venue of Official Assignment</div>
+              <mat-form-field appearance="outline" class="p-0 xyz" style="">
+                <input matInput style="font-size: 13px;" placeholder="Type here">
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4 p-0">
+              <div class="textfonts">Nature of Assignment</div>
+              <mat-form-field appearance="outline" class="p-0 xyz">
+                <mat-select style="font-size: 13px; font-weight: bold; " placeholder="Other">
+                  <mat-option style="font-size: 13px; font-weight: bold; " value="yes">Other</mat-option>
+                  <mat-option style="font-size: 13px; font-weight: bold; " value="no">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4 p-0 ">
+              <div class="textfonts">ID/Passport Number</div>
+              <mat-form-field appearance="outline" class="p-0 xyz">
+                <input matInput style="font-size: 13px;" placeholder="Type here">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 p-0 ">
+              <div class=" textfonts">Declaration Title</div>
+              <mat-form-field appearance="outline" class="p-0 w-100">
+                <input matInput style="font-size: 13px;" placeholder="Type here">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-12 p-0">
+              <div class=" textfonts">Remarks</div>
+              <mat-form-field style="width:100%; height:180px;">
+                <textarea matInput></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col-lg-6 col-sm-12 col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="agree-to" id="legal-req" value="legal-req">
+                <label class="form-check-label" for="legal-req">
+                  I agree to the Legal Requirements
+                </label>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="agree-to" id="term-dis" value="term-dis">
+                <label class="form-check-label" for="term-dis">
+                  I agree to the Terms of Disclaimer
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3 mb-4">
+            <div class="col-6">
+              <button type="button" class="btn  btn-block btn-rounded"
+                style="background-color: #FFFFFF; color: #E12827; border: #E12827 1px solid;font-size: 14px;">Clear
+                <img src="./../../../assets/icons/main-layout-icons/clear-icon.svg" alt="Clear Icon">
+              </button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn  btn-block btn-rounded"
+                style="background-color: #E12827;">Submit
+                <img src="../../../../assets/icons/main-layout-icons/submit.svg" class="pb-1" alt="Submit Icon">
+              </button>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      <!-- THIRD COLUMN -->
+      <div class="col-lg-3 col-md-12 col-sm-12">
+        <div class="container card4">
+          <div class="row p-0 mb-4">
+            <div class="col-12 p-0 d-flex align-items-center">
+              <div class="d-flex p-0 align-items-center w-100">
+                <img src="../../../../assets/icons/main-layout-icons/history.svg" class="pe-1 mt-1" 
+                style="height:20px; " alt="">
+                <p class="flex-grow-1 pt-3 ms-1 fw-semibold"
+                  style="font-size: 20px; color: #570c0c !important; font-family: Roboto; ">History</p>
+                <i class="material-icons ml-3">more_vert</i>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row" style="max-height:40px;">
+            <div class="col-1 p-0">
+              <img src="../../../../assets/icons/group-conflicts-icon.png"
+                style=" font-size: 20px; padding-right: 3px;">
+            </div>
+            <div class="col-8 p-0">
+              <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #133B3A;
+              font-size: 15px; padding-top: 4px;padding-left: 3px;padding-right: 3px;">
+                Tender Evaluation Committee</p>
+            </div>
+            <div class="col-3 p-0">
+              <p style="padding-top: 4px; color: #BFBFBF; font-size: 11px;">31/08/2022</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col p-0">
+              <p style="color:#000000; font-size: 12px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. S
+                oluta cum cumque reiciendis minima molestias
+                nam!</p>
+            </div>
+          </div>
+
+          <div class="row" style="max-height:40px;">
+            <div class="col-1 p-0">
+              <img src="../../../../assets/icons/gift-icon.png" style=" font-size: 20px; padding-right: 3px;">
+            </div>
+            <div class="col-8 p-0">
+              <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #133B3A;
+              font-size: 15px; padding-top: 4px;padding-left: 3px;padding-right: 3px;">
+                Tender Evaluation Committee</p>
+            </div>
+            <div class="col-3 p-0">
+              <p style="padding-top: 4px; color: #BFBFBF; font-size: 11px;">31/08/2022</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col p-0">
+              <p style="color:#000000; font-size: 12px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. S
+                oluta cum cumque reiciendis minima molestias
+                nam!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

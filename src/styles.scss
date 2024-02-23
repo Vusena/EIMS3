@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+//  INPUT
+.mdc-notched-outline {
+    height: 75% !important;
+}
+
+
+// .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+//      padding-top: 8px !important;
+//     // padding-bottom: 16px;
+// }
+    
+// .mat-mdc-icon-button.mat-mdc-button-base {
+//     padding-top: 3px;
+//     padding-bottom: 14px;
+//    }
+
+// STEPPER
+
+
+
+.mat-step-icon .mat-icon {
+    font-size: 6px;
+    height: 6px;
+    width: 6px;
+}
+.mat-step-icon-content {
+    color: white;
+    padding-left: 4px;
+}
+
+.mat-step-header .mat-step-icon {
+    margin-right: 3px !important;
+}
+
+.mat-vertical-content-container {
+    margin-left: 36px !important;
+}
+
+.mat-step-icon-selected {
+    background-color: #E12827 !important;
+    color: #0000 !important;
+}
+
+.mat-step-icon-state-done {
+    background-color: #E12827 !important;
+}
+
+.mat-step-icon-state-edit {
+    background-color: #E12827 !important;
+}
+
+.mat-step-icon-state-active{
+    background-color: #E12827 !important;
+}
+
+.material-icons {
+    color: #000 !important;
+   
+}
+.mat-vertical-stepper-header {
+    display: flex;
+    align-items: center;
+    height: 5px !important;
+    padding: 2px;
+}
+.mat-step-icon {
+    background-color: #E12827 !important;
+}
+

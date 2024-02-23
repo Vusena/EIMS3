@@ -15,6 +15,7 @@ import { MainLayoutComponent } from './core/components/main-layout/main-layout/m
 import { LayoutModule } from "./core/components/layout/layout.module";
 import { AuthComponent } from './core/components/auth/auth/auth.component';
 import { HttpClientModule } from "@angular/common/http";
+import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 
 
 
@@ -38,7 +39,12 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

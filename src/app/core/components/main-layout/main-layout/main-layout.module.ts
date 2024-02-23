@@ -16,6 +16,17 @@ import { LogOutComponent } from 'app/core/features/log-out/log-out.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import {MatSliderModule} from '@angular/material/slider';
+
+
 
 
 @NgModule({
@@ -34,8 +45,25 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     MainLayoutRoutingModule,
     LayoutModule,
+    ReactiveFormsModule,
+
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSliderModule
+
+
+  ],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
+    }
   ]
 })
 export class MainLayoutModule { }

@@ -23,12 +23,13 @@
 							"src/assets",
 							"src/favicon.ico",
 							"src/assets/icons"
+							
 						],
 						"styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "src/assets/scss/paper-dashboard.scss",
-             
+			  "src/styles.scss",
               "src/assets/css/demo.css"
             ],
 						"scripts": []

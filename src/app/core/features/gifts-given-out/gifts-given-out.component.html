@@ -1,1 +1,245 @@
-<p>gifts-given-out works!</p>
+<div class="container p-0 ">
+  <div>
+    <nav class="navbar header-nav">
+      <span class="dashboard-heading">Gifts Given Out Declaration</span>
+    </nav>
+  </div>
+
+  <div class="container align-items-center">
+    <div class="row justify-content-md-center">
+
+
+      <!-- COLUMN 1 -->
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="container  card1">
+          <div class="row">
+            <div class="col-12 p-3">
+              <p class="fw-semibold" style="color:#741110; font-size: 20px; font-family:'Roboto';">Declaration Progress
+              </p>
+            </div>
+          </div>
+
+
+          <div class="row p-0">
+            <div class="col p-0"> <mat-stepper orientation="vertical" [linear]="isLinear">
+                <!-- replace the edit icon with the home icon -->
+
+                <ng-template matStepperIcon="active">
+                  <mat-icon>adjust</mat-icon>
+                </ng-template>
+                <!-- change default 'edit' icon -->
+                <ng-template matStepperIcon="edit">
+                  <mat-icon>adjust</mat-icon>
+                </ng-template>
+
+                <!-- change default 'done' icon -->
+                <ng-template matStepperIcon="done">
+                  <mat-icon>adjust</mat-icon>
+                </ng-template>
+
+                <!-- change default 'number' icon -->
+                <ng-template matStepperIcon="number">
+                  <mat-icon>adjust</mat-icon>
+                </ng-template>
+
+                <mat-step state="adjust">
+                  <ng-template matStepLabel style="font-size: 14px;">Heading1</ng-template>
+                  <div class="p-0">
+                    <p style="font-size: 12px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nemo quia
+                      molestias sed fugit?
+                      Debitis repudiandae numquam, cum perspiciatis adipisci dolor voluptas quo tenetur dolorem soluta
+                      animi iste sit consequatur fugiat consequuntur, neque quos blanditiis praesentium distinctio
+                      molestias repellendus commodi unde eaque. Magni nobis veniam voluptas, ipsam quos voluptates
+                      commodi!</p>
+                  </div>
+                </mat-step>
+
+                <mat-step state="adjust">
+                  <ng-template matStepLabel style="font-size: 14px;">Heading2</ng-template>
+                  <div>
+                    <p style="font-size: 12px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+                      rem numquam sunt dolor
+                      quod velit quasi, ipsum similique! Maiores iusto quidem temporibus tempore, eum unde voluptates
+                      laborum atque est tempora rerum iste quod eaque autem aliquid blanditiis odio doloremque?
+                      Perspiciatis itaque quidem voluptas officiis dicta obcaecati, quisquam sunt quos reiciendis.
+                    </p>
+                  </div>
+                </mat-step>
+
+                <mat-step state="adjust">
+                  <ng-template matStepLabel style="font-size: 14px;">Heading3</ng-template>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad at
+                    necessitatibus iure
+                    asperiores tenetur possimus omnis assumenda, eos adipisci minima? Numquam neque blanditiis deleniti
+                    qui aspernatur voluptatum laboriosam fuga velit, ex temporibus veritatis culpa sint maxime non
+                    saepe! Expedita neque ex dolore nesciunt autem temporibus dicta voluptatum voluptates numquam!</p>
+                </mat-step>
+
+              </mat-stepper>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- SECOND COLUNM -->
+      <div class="col-lg-6 col-md-6 col-sm-6 ">
+        <div class="container card3">
+          <div class="row d-flex justify-content-between pe-0">
+            <div class="col-md-4 p-0 ">
+              <p class="fw-semibold" style="color: #741110; font-size: 20px; font-family:'Roboto';">Declaration Details
+              </p>
+            </div>
+            <div class="col-md-8 py-0 d-flex " style="background-color: #FBE4E4; max-height: 25px;">
+              <i class="material-icons " style="color: #741110!important;">warning</i>
+              <span class="" style="color:#133B3A; font-size: 11px; padding-top: 8px;  ">DO NOT declare if you have no
+                conflict of
+                interest!</span>
+            </div>
+          </div>
+
+
+
+          <div class="row mt-3">
+            <div class="col-md-4 p-0">
+              <div class="textfonts">Declaration Date</div>
+              <mat-form-field appearance="outline" class="p-0 xyz">
+                <input matInput [matDatepicker]="picker" style="font-size: 12px;" placeholder="09/07/2023">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4 p-0">
+              <div class="textfonts">Date you gave gift</div>
+              <mat-form-field appearance="outline" class="p-0 xyz">
+                <input matInput [matDatepicker]="picker1" style="font-size: 12px; margin-left: 0;"
+                  placeholder="09/07/2023">
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-4 p-0 ">
+              <div class="textfonts ">Occasion</div>
+              <mat-form-field class="xyz" appearance="outline">
+                <input matInput style="font-size: 12px;" placeholder="Member">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div class="row ">
+            <div class="col p-0">
+              <div class="textfonts">Value of Gift</div>
+              <mat-form-field appearance="outline" class="p-0 xyz" style="">
+                <input matInput style="font-size: 12px;" placeholder="Type here..">
+
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-8 p-0">
+              <div class="textfonts">Name of Recepient</div>
+              <mat-form-field appearance="outline" class="p-0" style="width: 100%;">
+                <input matInput style="font-size: 12px;" placeholder="Type here..">
+              </mat-form-field>
+            </div>
+          </div>
+
+
+
+          <div class="row ">
+            <div class="col-12 p-0">
+              <div class=" textfonts">Gift Description</div>
+              <mat-form-field style="width:100%; height:180px;">
+                <textarea matInput></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="row mt-2">
+            <div class="col-lg-6 col-sm-12">
+              <div class="form-check terms">
+                <input class="form-check-input" type="radio" name="agree-to" id="legal-req" value="legal-req">
+                <label class="form-check-label" for="legal-req" style="font-size: 12px;">
+                  I agree to the Legal Requirements
+                </label>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <div class="form-check terms">
+                <input class="form-check-input" type="radio" name="agree-to" id="term-dis" value="term-dis">
+                <label class="form-check-label" for="term-dis" style="font-size: 12px;">
+                  I agree to the Terms of Disclaimer
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3 mb-4">
+            <div class="col-6">
+              <button type="button" class="btn btn-primary btn-block btn-rounded"
+                style="background-color: #FFFFFF; color: #E12827; border: #E12827 1px solid;">Clear
+                <img src="../../../../assets/icons/main-layout-icons/clear-icon.svg" alt="Clear Icon">
+              </button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn  btn-block btn-rounded"
+                style="background-color: #E12827;">Submit
+                <img src="../../../../assets/icons/main-layout-icons/submit.svg" class="pb-1" alt="Submit Icon">
+              </button>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      <!-- THIRD COLUMN -->
+      <div class="col-lg-3 col-md-12 col-sm-12">
+        <div class="container card4">
+          <div class="row p-0 mb-3">
+            <div class="col-12 p-0 d-flex align-items-center">
+              <div class="d-flex p-0 align-items-center w-100">
+                <img src="../../../../assets/icons/main-layout-icons/history.svg" class="pe-1 mt-1" 
+                style="height:20px; " alt="">
+                <p class="flex-grow-1 pt-3 ms-1 fw-semibold"
+                  style="font-size: 20px; color: #570c0c !important; font-family: Roboto; ">History</p>
+                <i class="material-icons ml-3">more_vert</i>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row mb-5" style="max-height:40px;" *ngFor="let item of giftsHistoryData">
+            <div class="col-1 p-0">
+              <img src="../../../../assets/icons/gift-icon.png" style=" padding-top: 4px;  padding-right: 3px;">
+            </div>
+            <div class="col-8 p-0">
+              <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #133B3A;
+              font-size: 15px; padding-top: 4px;padding-left: 3px;padding-right: 3px;">
+                {{item.recipient }}</p>
+            </div>
+            <div class="col-3 p-0">
+              <p style="padding-top: 4px; color: #BFBFBF; font-size: 11px;">{{item.createdDate | date:'yyyy/MM/dd' }}</p>
+            </div>
+
+
+            <div class="row ">
+              <div class="col p-0">
+                <p style="color:#000000; font-size: 12px;">
+                  {{item.description}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

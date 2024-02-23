@@ -19,9 +19,9 @@
     <div class="collapse navbar-collapse justify-content-end " id="collapseExample" [ngbCollapse]="isCollapsed">
 
       <form>
-        <div class="input-group lower-border">
+        <div class="input-group"style=" border-bottom: #9F9F9F solid 2px ;">
           <div class="input-group-prepend ">
-            <div class="input-group-text">
+            <div class="input-group-text"style="border: none; background-color: transparent;" >
               <i class="nc-icon nc-zoom-split mr-4"></i>
             </div>
           </div>
@@ -30,13 +30,17 @@
       </form>
 
       <ul class="navbar-nav">
-     
+
+       <li class="nav-item ms-2 me-3 pt-2">
+        <div class="media align-items-center"> 
+          <img src="../../../../../assets/icons/main-layout-icons/notifications.svg" alt="Icon" 
+          class="icon" > 
+          </div>
+       </li>
 
          <li class="nav-item"> 
           <div class="media align-items-center"> 
-                         <mat-icon class="small-icon">person</mat-icon> 
-              <span class="mb-0 text-sm  font-weight-bold">Eunice Vusena</span>
-          
+          <mat-icon class="small-icon">person</mat-icon> 
           </div>
         </li>
 

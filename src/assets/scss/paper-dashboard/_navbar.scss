@@ -5,16 +5,17 @@
     margin-bottom: 20px;
     width:800px;
     opacity: 1;
+   
 
     a{
         vertical-align: middle;
 
         &:not(.btn):not(.dropdown-item){
-            color: $white-color;
+            color:black;
         }
 
         &.dropdown-item{
-            color: $default-color;
+            color: black;
         }
     }
 
@@ -72,15 +73,19 @@
     }
 
     &.navbar-absolute{
-        position: absolute;
-        width: 100%;
+        position: fixed;
+        width:calc(100% - 260px);
         padding-top: 10px;
         z-index: 1029;
+        left:260px;
+        
     }
+
+   
 
     .documentation &{
         &.fixed-top{
-            left: 0;
+             left: 0;
             width: initial;
         }
     }
@@ -308,3 +313,4 @@
 // .bg-white{
 //     background-color: $white-color !important;
 // }
+

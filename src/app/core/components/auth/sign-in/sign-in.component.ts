@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Environment } from 'app/core/environments/environment';
+import { AuthService } from 'app/core/services/auth.service';
+import { Observable, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,7 +20,8 @@ export class SignInComponent implements OnInit {
   isLoading: boolean = false;
   isLoggedIn :boolean = false;
 
-  constructor( private router: Router, private fb: FormBuilder) { }
+  constructor( private http: HttpClient, private router: Router, private fb: FormBuilder,private authService: AuthService) { }
+  
 
   ngOnInit() {
     this.Form = this.fb.group({
@@ -27,14 +32,31 @@ export class SignInComponent implements OnInit {
   
   onSubmit() {
     this.isLoading = true;
-    // const username = this.Form.value.username;
-    // const password = this.Form.value.password;
-    this.router.navigate(["/dashboard"])
-console.log("I have been redirected")
+  
+    // this.router.navigate(["/dashboard"])
+    const username = this.Form.value.username;
+    const password = this.Form.value.password;
+       console.log(username, password)
+     this.authService.login(username, password).subscribe(
+      (response) => {
+        console.log('Login Response:', response);
+        this.isLoading = false;
+        this.successMessage = "Logging you in, please wait...";
+        localStorage.setItem('accessToken', response.body.token);
+        // localStorage.setItem('UserInfo', JSON.stringify(response.body));
+       
+        // Navigate to dashboard or any other route upon successful login
+        this.router.navigate(["/dashboard"]);
+      },
+      (error) => {
+        this.isLoading = false;
+        this.errorMessage = error.error.description;
+        console.error("An error was encountered. Below is the Error:", error);
+      }
+    );
   }
-  ngOnDestroy() { }
 
-  ToggleFieldTextType() {
-    this.fieldTextType = !this.fieldTextType;
   }
-}
+ 
+
+

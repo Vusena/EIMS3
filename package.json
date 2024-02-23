@@ -14,7 +14,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.1.1",
-    "@angular/cdk": "^15.0.0",
+    "@angular/cdk": "^16.0.0",
     "@angular/common": "^17.1.1",
     "@angular/compiler": "^17.1.1",
     "@angular/core": "^17.1.1",
@@ -26,6 +26,7 @@
     "@angular/platform-browser": "^17.1.1",
     "@angular/platform-browser-dynamic": "^17.1.1",
     "@angular/router": "^17.1.1",
+    "@auth0/angular-jwt": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^15.0.0",
     "@ngui/map": "0.30.3",
     "@popperjs/core": "^2.11.4",
@@ -40,7 +41,7 @@
     "moment": "^2.30.1",
     "rxjs": "~7.5.0",
     "web-animations-js": "2.3.2",
-    "zone.js": "~0.14.3"
+    "zone.js": "^0.13.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.1.1",
