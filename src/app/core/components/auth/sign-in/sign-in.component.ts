@@ -33,7 +33,7 @@ export class SignInComponent implements OnInit {
   onSubmit() {
     this.isLoading = true;
   
-    // this.router.navigate(["/dashboard"])
+    
     const username = this.Form.value.username;
     const password = this.Form.value.password;
        console.log(username, password)
@@ -42,8 +42,14 @@ export class SignInComponent implements OnInit {
         console.log('Login Response:', response);
         this.isLoading = false;
         this.successMessage = "Logging you in, please wait...";
-        localStorage.setItem('accessToken', response.body.token);
-        // localStorage.setItem('UserInfo', JSON.stringify(response.body));
+        localStorage.setItem('TOKEN', response.body.token);
+        localStorage.setItem('USER', JSON.stringify(response.body.data.staffNo));
+        localStorage.setItem('ROLES', JSON.stringify(response.body.data.roles.map((role: any) => role.name)));
+        // console.log(this.authService.getUserRoles());
+        // Navigate to dashboard or any other route upon successful login
+        console.log('USER', response.body.data.staffNo)
+        console.log('ROLES', response.body.data.roles)
+        console.log('Roles:', localStorage.getItem('ROLES'));
        
         // Navigate to dashboard or any other route upon successful login
         this.router.navigate(["/dashboard"]);

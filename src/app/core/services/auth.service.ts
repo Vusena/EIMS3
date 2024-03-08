@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { throwError } from 'rxjs';
+import { Enums } from '../common/Enum';
 
 
 
@@ -35,10 +36,12 @@ export class AuthService {
       observe: 'response'
     }).pipe(
       map( response=> {
-        sessionStorage.setItem(Environment.USER, JSON.stringify(response.body));
+        sessionStorage.setItem(Enums.USER, JSON.stringify(response.body));
         console.log(response.body)
-        sessionStorage.setItem(Environment.TOKEN, response.body.token);
+        sessionStorage.setItem(Enums.TOKEN, response.body.token);
         console.log(response.body.token)
+        sessionStorage.setItem(Enums.ROLES, JSON.stringify(response.body.data.roles));
+
         
      return response
       }),
@@ -49,14 +52,14 @@ export class AuthService {
   }
 
   logout() {
-    sessionStorage.removeItem(Environment.TOKEN);
-    sessionStorage.removeItem(Environment.USER);
+    sessionStorage.removeItem(Enums.TOKEN);
+    sessionStorage.removeItem(Enums.USER);
     //this.username = null;
     //this.password = null;
   }
 
   isLoggedIn() {
-    let token = sessionStorage.getItem(Environment.TOKEN)
+    let token = sessionStorage.getItem(Enums.TOKEN)
     //return token !== null;
     return !(token === null)
    
@@ -64,16 +67,33 @@ export class AuthService {
  
 
   getLoggedInUser() : any {
-    let item = sessionStorage.getItem(Environment.USER)
+    let item = sessionStorage.getItem(Enums.USER)
     if (item != null) {
       return JSON.parse(item)
     } else {
       return null
     }
   }
+  getUserRoles(): any[] {
+    let roles = sessionStorage.getItem(Enums.ROLES);
+    // console.log("Roles from session storage:", roles);
+    if (roles != null) {
+      try {
+        const parsedRoles = JSON.parse(roles);
+        return parsedRoles.map((role: any) => role.name);
+      } catch (error) {
+        console.error("Error parsing roles:", error);
+        return [];
+      }
+    } else {
+      console.log("No roles found in session storage");
+      return [];
+    }
+  }
+  
   // retrieve the authorization token stored in the session storage
     getAuthorizationToken() : String {
-      return sessionStorage.getItem(Environment.TOKEN) ?? "";
+      return sessionStorage.getItem(Enums.TOKEN) ?? "";
     }
   
     private handleError(error: any) {

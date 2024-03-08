@@ -16,6 +16,70 @@
 
 // STEPPER
 
+// .mat-mdc-form-field{
+//     height:50px;
+// }
+
+.mat-mdc-tab .mdc-tab__text-label {
+    color: #E12827 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+.mat-mdc-tab {
+  
+    background: none !important;
+    font-family: Roboto !important;
+    font-size: 30px;
+    // letter-spacing:
+    // line-height: 
+    font-weight: bold !important;
+}
+.mdc-tab {
+   min-width: 100px !important;
+}
+.mat-mdc-tab-label-container {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    z-index: 1;
+    border-bottom: 1px solid rgb(215, 212, 212)!important;
+}
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: #E12827;
+    --mat-tab-header-disabled-ripple-color: rgba(0, 0, 0, .38);
+    --mat-tab-header-pagination-icon-color: #000;
+    --mat-tab-header-inactive-label-text-color: rgba(0, 0, 0, .6);
+    --mat-tab-header-active-label-text-color:#E12827;
+    --mat-tab-header-active-ripple-color: #E12827;
+    --mat-tab-header-inactive-ripple-color: #3f51b5;
+    --mat-tab-header-inactive-focus-label-text-color: rgba(0, 0, 0, .6);
+    --mat-tab-header-inactive-hover-label-text-color: rgba(0, 0, 0, .6);
+    --mat-tab-header-active-focus-label-text-color: #E12827;
+    --mat-tab-header-active-hover-label-text-color: #E12827;
+    --mat-tab-header-active-focus-indicator-color: #E12827;
+    --mat-tab-header-active-hover-indicator-color: #E12827;
+}
+
+
+.mdc-tab {
+    padding-right: 24px;
+    padding-left: 24px;
+    display: flex;
+    flex: 1 0 auto;
+    justify-content:left;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    z-index: 1;
+}
+.mat-mdc-tab-labels {
+    display: flex;
+    flex: 1 0 auto;
+    width:300px !important;
+}
+
 
 
 .mat-step-icon .mat-icon {

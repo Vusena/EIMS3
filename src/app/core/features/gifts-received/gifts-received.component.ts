@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions, } from 'ngx-lottie';
 
 @Component({
   selector: 'app-gifts-received',
@@ -16,5 +18,11 @@ export class GiftsReceivedComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  options: AnimationOptions = {
+    
+  };
 
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
 }

@@ -1,0 +1,60 @@
+<div class="container p-0">
+    <div>
+        <nav class="navbar header-nav">
+            <span class="dashboard-heading">Create a Schedule for Integrity Award Nominations</span>
+        </nav>
+    </div>
+
+    <div class="container align-items-center">
+        <div class="row justify-content-md-center">
+            <div class="row">
+                <div class="col-lg-9 col-md-6 col-sm-6">
+                    <div class="container card1">
+
+                        <mwl-calendar></mwl-calendar>
+
+                    </div>
+                </div>
+
+                <!-- SECOND COLUMN -->
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="container card3">
+                        <div class="row">
+                            <div class="schedule mt-3 mb-2">Create Schedule</div>
+                            <div style="color: #133b3a; font-size: 13px" class="mt-2">
+                                You have not created a schedule yet
+                            </div>
+                            <div style="line-height: 1; color: #133b3a; font-size: 12px" class="mt-2">
+                                Once you create a schedule KRA staff will be able to nominate
+                                each other.
+                            </div>
+
+                            <div class="textfonts p-0 mt-3">Start Date</div>
+                            <mat-form-field appearance="outline" class="p-0 xyz">
+                                <input matInput [matDatepicker]="picker1" style="font-size: 13px; margin-left: 0" />
+                                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+
+                            <div class="textfonts p-0">Closing Date</div>
+                            <mat-form-field appearance="outline" class="p-0 xyz">
+                                <input matInput [matDatepicker]="picker1" style="font-size: 13px; margin-left: 0" />
+                                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+
+                            <div class="col-12 mt-3 p-0">
+                                <button type="button" class="btn btn-block btn-rounded buttonn"
+                                    style="background-color: #e12827; width:100%;" >
+                                    Submit
+                                    <img src="../../../../assets/icons/main-layout-icons/submit.svg" class="pb-1"
+                                        alt="Submit Icon" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

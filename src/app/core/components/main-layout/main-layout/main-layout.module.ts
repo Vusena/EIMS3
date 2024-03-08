@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MainLayoutRoutingModule } from './main-layout-routing.module';
@@ -18,13 +18,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import {MatSliderModule} from '@angular/material/slider';
+import { IntergrityAwardComponent } from 'app/core/features/intergrity-award/intergrity-award.component';
+import { ReportsComponent } from 'app/core/features/reports/reports.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TabsComponent } from 'app/core/features/admin/tabs/tabs.component';
+
+
+import { LottieComponent,  AnimationOptions } from 'ngx-lottie';
+import { IntergrityAwardAdminComponent } from 'app/core/features/admin/intergrity-award-admin/intergrity-award-admin.component';
+
 
 
 
@@ -38,14 +49,21 @@ import {MatSliderModule} from '@angular/material/slider';
       GiftsGivenOutComponent,
       PoliciesComponent,
       FaqsComponent,
-      LogOutComponent
+      LogOutComponent,
+      IntergrityAwardComponent,
+      ReportsComponent,
+      TabsComponent,
+      IntergrityAwardAdminComponent
+
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
   imports: [
     CommonModule,
     MainLayoutRoutingModule,
     LayoutModule,
     ReactiveFormsModule,
+    FormsModule,
 
     MatInputModule,
     MatIconModule,
@@ -55,8 +73,12 @@ import {MatSliderModule} from '@angular/material/slider';
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSliderModule
-
+    MatSliderModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    FullCalendarModule,
+    MatTabsModule,
+   LottieComponent,
 
   ],
   providers: [

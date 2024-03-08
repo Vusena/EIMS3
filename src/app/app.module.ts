@@ -37,7 +37,8 @@ import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
     LayoutModule,
     // ToastrModule.forRoot(),
     HttpClientModule,
-    RouterModule
+    RouterModule,
+  
   ],
   providers: [
     {
