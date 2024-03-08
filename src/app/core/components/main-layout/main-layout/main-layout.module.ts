@@ -35,6 +35,8 @@ import { TabsComponent } from 'app/core/features/admin/tabs/tabs.component';
 
 import { LottieComponent,  AnimationOptions } from 'ngx-lottie';
 import { IntergrityAwardAdminComponent } from 'app/core/features/admin/intergrity-award-admin/intergrity-award-admin.component';
+import { CalendarModule } from 'angular-calendar';
+
 
 
 
@@ -79,6 +81,8 @@ import { IntergrityAwardAdminComponent } from 'app/core/features/admin/intergrit
     FullCalendarModule,
     MatTabsModule,
    LottieComponent,
+   CalendarModule,
+
 
   ],
   providers: [
