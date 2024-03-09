@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
 import { MatIconModule } from '@angular/material/icon';
@@ -16,8 +16,10 @@ import { LayoutModule } from "./core/components/layout/layout.module";
 import { AuthComponent } from './core/components/auth/auth/auth.component';
 import { HttpClientModule } from "@angular/common/http";
 import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
+import { YearCalendarModule } from "@iomechs/angular-year-calendar";
 
 
+import player from 'lottie-web';
 
 
 @NgModule({
@@ -38,8 +40,11 @@ import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
     // ToastrModule.forRoot(),
     HttpClientModule,
     RouterModule,
+    YearCalendarModule,
+
   
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,

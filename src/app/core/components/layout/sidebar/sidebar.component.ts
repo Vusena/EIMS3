@@ -16,11 +16,9 @@ export const ROUTES: RouteInfo[] = [
   { path: 'gifts-received', title: 'Gifts Recieved',     icon:'gift-received-icon.png',    class: '' },
   { path: 'gifts-given-out',          title: 'Gifts Given Out',      icon:'gift-icon.png',  class: '' },
   { path: 'intergrity-award',          title: 'Intergrity-Award',      icon:'gift-icon.png',  class: '' },
-  { path: 'reports',          title: 'Reports',      icon:'gift-icon.png',  class: '' },
+  // { path: 'reports',          title: 'Reports',      icon:'gift-icon.png',  class: '' },
 
-  // { path: '/table',         title: 'Table List',        icon:'nc-tile-56',    class: '' },
-  // { path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' },
-  // { path: '/upgrade',       title: 'Upgrade to PRO',    icon:'nc-spaceship',  class: 'active-pro' },
+ 
 
 ];
 

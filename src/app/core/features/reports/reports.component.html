@@ -9,10 +9,18 @@
         <div class="row justify-content-md-center">
             <div class="row">
                 <div class="col-lg-9 col-md-6 col-sm-6">
-                    <div class="container card1">
+                    <div class="container card1 p-0">
 
-                        <mwl-calendar></mwl-calendar>
-
+                     <div class="calender">
+                        <yc-year-calendar>
+                            <!-- [loadingData]="isLoadingData"
+                            (viewYearChanged)="viewYearChangedHandler($event")
+                            (eventDayClicked)="eventDayClickHandler($event)"
+                            [ycConfig]="myCalendarConfig"
+                            [selectedDate]="currentDate"> -->
+                        </yc-year-calendar>
+                    </div>
+                    
                     </div>
                 </div>
 

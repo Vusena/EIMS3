@@ -262,6 +262,40 @@
      width:170px;
 }
 
+// ANIMATIONS
+.animationcard{
+  background-color:#FFFFFF ;
+  opacity: 0.8;
+  padding-top: 50px;
+}
+.info{
+  font-size:40px;
+ padding-bottom:30px;
+  text-align: center;
+  color:rgb(9, 9, 9);
+  font-family: Roboto;
+}
+
+.notify1{
+  font-size:25px;
+  text-align: center;
+  color:rgb(9, 9, 9);
+  padding-top: 50px;
+  font-family: Roboto;
+   margin:0;
+ }
+  
+.notify2{
+  font-size:25px;
+  text-align: center;
+  color:rgb(9, 9, 9);
+  padding-bottom: 40px;
+  padding-top: 10px;
+  font-family: Roboto;
+  margin:0;
+  }
+  
+
 @media screen and (max-width: 771px) {
   .xyz {
     width: 100%;
@@ -287,29 +321,3 @@
 }
 
 
-.img{
-  background-image: url('../../../../assets/img/animations/Coming_Soon.gif') !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height:100vh;
-  width: 600px;
-  opacity:0.8;
-  aspect-ratio: auto;
-  padding-left:40px;
-  margin-left :30px;
-  padding-top: 100px;
-
-
-}
-.info{
-  font-size:50px;
-  font-weight: bold;
-  text-align: center;
-  
-}
-.notify{
-  font-size:30px;
-  font-weight: bold;
-  text-align: center;
- 
-}

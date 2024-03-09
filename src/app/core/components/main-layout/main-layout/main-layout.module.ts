@@ -32,10 +32,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TabsComponent } from 'app/core/features/admin/tabs/tabs.component';
 
-
-import { LottieComponent,  AnimationOptions } from 'ngx-lottie';
 import { IntergrityAwardAdminComponent } from 'app/core/features/admin/intergrity-award-admin/intergrity-award-admin.component';
-import { CalendarModule } from 'angular-calendar';
+import { YearCalendarModule } from '@iomechs/angular-year-calendar';
+
 
 
 
@@ -80,8 +79,9 @@ import { CalendarModule } from 'angular-calendar';
     MatNativeDateModule,
     FullCalendarModule,
     MatTabsModule,
-   LottieComponent,
-   CalendarModule,
+    YearCalendarModule
+
+
 
 
   ],
