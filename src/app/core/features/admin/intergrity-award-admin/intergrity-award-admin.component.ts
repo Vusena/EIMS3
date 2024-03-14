@@ -34,7 +34,6 @@ export class IntergrityAwardAdminComponent {
   hasKRAValues: boolean | null = null; // Initialize to null
   contributionDescription: string = '';
   scheduleId=1;
-  serviceLength=2;
   nomineeError:"";
 
  
@@ -114,7 +113,6 @@ export class IntergrityAwardAdminComponent {
       coreValues:  this.convertToNumber(this.hasKRAValues),
       description: this.contributionDescription,
       scheduleId: this.scheduleId,
-      serviceLength: this.serviceLength,
       nominee: this.staff_number
     }
     console.log(nomineeData.nominee)

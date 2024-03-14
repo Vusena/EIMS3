@@ -1,0 +1,415 @@
+<div class="container p-0">
+    <div>
+        <nav class="navbar header-nav">
+            <span class="dashboard-heading">Hello Admin, Welcome to EIMS</span>
+        </nav>
+    </div>
+
+    <div class="container align-items-center">
+        <div class="row justify-content-md-center">
+            <!-- COLUMN 1 -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="container card1">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <p class="text1">Assign Roles and Privileges</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <p class="text2">Search User to Assign</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <form>
+                                <div class="search-container">
+                                    <i class="material-icons">search</i>
+                                    <input type="text" placeholder="Search by Name or P.No" class="search-bar"
+                                        [formControl]="searchControl" />
+                                </div>
+
+                                <div class="search-results-container shadow">
+                                    <div class="line-container">
+                                        <div *ngFor="let result of filteredResults" class="line-text"
+                                            (click)="onSelectUser(result)">
+                                            {{ result.firstName }} {{ result.lastName }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <div class="col-12 mt-3 pb-2 d-flex justify-content-center">
+                                        <button style=" width: 80%; border-radius: 30px; background-color:
+                                         #FFFFFF; color: #707070; border: #707070 1px solid; font-size: 14px;"
+                                            class=" py-1" (click)="addMember(selectedUser)">
+                                            <img src="../../../../assets/icons/main-layout-icons/add-member.svg"
+                                                class="pb-1" alt="Submit Icon">
+                                            Add Member
+                                        </button>
+                                    </div> -->
+                        </div>
+                    </div>
+
+                    <div class="row mb-5 mt-3" *ngIf="isUserSelected">
+                        <div class="col">
+                            <div class="line-container">
+                                <div *ngFor="let member of members" class="line-text">
+                                    {{ member.firstName }} {{ member.lastName }}
+                                </div>
+                                <i class="material-icons delete-icon" (click)="onClearSearchInput()">delete</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p class="assign-role">Assign Role</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+                            <div class="button-container gap-4">
+                                <ng-container *ngFor="let role of Roles">
+                                    <button (click)="getPrivileges(role.name)"
+                                        [class]="role.name === 'ADMIN' ? 'button-sm' : 'button-lg'"
+                                        style="font-size: 12px; width: 150px"
+                                        [ngClass]="{ highlighted: role.isSelected }">
+                                        {{ role.name }}
+                                    </button>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <p class="assign-privileges-text">Assign Privileges</p>
+                        </div>
+                    </div>
+ 
+                    <div class="row mb-2">
+                        <ng-container *ngFor="let privilege of Priviledges">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="{{ privilege.id }}"
+                                        [checked]="isChecked(privilege)" />
+                                    <label class="form-check-label" for="{{ privilege.id }}">
+                                        {{ privilege.name }}
+                                    </label>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <!-- <div class="row mb-5">
+                        <div class="col">
+                            <div class="form-check" *ngFor="let privilege of retrievedPrivileges">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                                    [checked]="isChecked(privilege)" />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    {{ privilege.name }}
+                                </label>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="row mt-5 mb-5">
+                        <div class="col">
+                            <div class="d-flex justify-content-centeSubmitr w-100">
+                                <button type="submit" class="btn btn-black btn-lg w-100"
+                                    (submit)="onSubmitRoleAssignee()">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECOND COLUNM -->
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="container card3">
+                    <div class="row" style="height: 150px">
+                        <div class="col-12 d-flex flex-wrap gap-5">
+                            <div class="col px-0 py-2 no-recent-activity">
+                                <p>No recent activity</p>
+                            </div>
+                            <div class="col-lg-3 col-sm-1 col-sm-3 py-2 rounded-pill d-flex justify-content-center assign-rolee"
+                                style="font-weight: 500">
+                                <p>Assign Role</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- group button -->
+                    <div class="row row2 mb-2 p-3">
+                        <div class="d-flex justify-content-between">
+                            <a href="javascript:void(0)" class="btn btn-group-text"
+                                style="line-height: 1; color: #dfdfdf">declared</a>
+                            <a href="javascript:void(0)" class="btn btn-group-text"
+                                style="line-height: 1; color: #dfdfdf">pending</a>
+                            <a href="javascript:void(0)" class="btn btn-group-text"
+                                style="line-height: 1; color: #dfdfdf">complete</a>
+                        </div>
+                        <div class="btn-group" style="background-color: #dfdfdf; border: none; height: 15px">
+                            <a href="javascript:void(0)" class="btn" style="line-height: 1"></a>
+                            <a href="javascript:void(0)" class="btn" style="line-height: 1"></a>
+                            <a href="javascript:void(0)" class="btn" style="line-height: 1"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOUR DIVS -->
+
+                <div class="container">
+                    <div class="row">
+                        <!-- fist column -->
+                        <div class="col-sm-6 d-flex flex-column p-0">
+                            <!-- first mini card individual-conflicts -->
+                            <div class="d-flex flex-column card2 me-2">
+                                <div class="pb-1 flex-fill">
+                                    <p style="height: 3px; color: #dfdfdf; font-size: 10px">
+                                        Year to date
+                                    </p>
+                                </div>
+
+                                <div class="p-0 d-flex justify-content-between" style="width: 100%">
+                                    <p class="" style="color: #741110; font-weight: 600; font-size: 18px">
+                                        Individual conflicts
+                                    </p>
+                                    <span class="text-muted"><i class="material-icons">more_vert</i></span>
+                                </div>
+
+                                <div class="p-0 mt-4 flex-fill d-flex" style="width: 100%">
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start" style="
+                      font-size: 52px;
+                      font-weight: 500;
+                      width: 20%;
+                      height: 20px;
+                    ">
+                                        0
+                                    </div>
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start">
+                                        <p class="mb-0">declared</p>
+                                    </div>
+                                    <div class="col-4 ms-3 p-0 d-flex position-relative"
+                                        style="height: 100px; width: 120px">
+                                        <img class="position-absolute p-0 bottom-0 end-0"
+                                            src="../../../../assets/icons/dashboard-icons/individualconflicts-icon.svg"
+                                            alt="Icon" style="height: 100px" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- second mini card gifts given out-->
+                            <div class="d-flex flex-column card2 me-2">
+                                <div class="pb-1 flex-fill">
+                                    <p style="height: 3px; color: #dfdfdf; font-size: 10px">
+                                        Year to date
+                                    </p>
+                                </div>
+
+                                <div class="p-0 d-flex justify-content-between" style="width: 100%">
+                                    <p class="" style="color: #741110; font-weight: 600; font-size: 18px">
+                                        Gifts Given Out
+                                    </p>
+                                    <span class="text-muted"><i class="material-icons">more_vert</i></span>
+                                </div>
+
+                                <div class="p-0 mt-4 flex-fill d-flex" style="width: 100%">
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start" style="
+                      font-size: 52px;
+                      font-weight: 500;
+                      width: 20%;
+                      height: 20px;
+                    ">
+                                        0
+                                    </div>
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start">
+                                        <p class="mb-0">declared</p>
+                                    </div>
+                                    <div class="col-4 ms-3 p-0 d-flex position-relative"
+                                        style="height: 100px; width: 120px">
+                                        <img class="position-absolute p-0 bottom-0 end-0"
+                                            src="../../../../assets/icons/dashboard-icons/gifts-given-out.svg"
+                                            alt="Icon" style="height: 100px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- second column -->
+
+                        <div class="col-sm-6 d-flex flex-column p-0">
+                            <!-- second mini card group-conflicts -->
+                            <div class="d-flex flex-column card2 me-2">
+                                <div class="pb-1 flex-fill">
+                                    <p style="height: 3px; color: #dfdfdf; font-size: 10px">
+                                        Year to date
+                                    </p>
+                                </div>
+
+                                <div class="p-0 d-flex justify-content-between" style="width: 100%">
+                                    <p class="" style="color: #741110; font-weight: 600; font-size: 18px">
+                                        Group Conflicts
+                                    </p>
+                                    <span class="text-muted"><i class="material-icons">more_vert</i></span>
+                                </div>
+
+                                <div class="p-0 mt-4 flex-fill d-flex" style="width: 100%">
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start" style="
+                      font-size: 52px;
+                      font-weight: 500;
+                      width: 20%;
+                      height: 20px;
+                    ">
+                                        0
+                                    </div>
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start">
+                                        <p class="mb-0">declared</p>
+                                    </div>
+                                    <div class="col-4 ms-3 p-0 d-flex position-relative"
+                                        style="height: 100px; width: 120px">
+                                        <img class="position-absolute p-0 bottom-0 end-0"
+                                            src="../../../../assets/icons/dashboard-icons/group-conflict.svg" alt="Icon"
+                                            style="height: 100px" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- fourth mini card gifts received -->
+                            <div class="pr-0 d-flex flex-column card2 me-2">
+                                <div class="pb-1 flex-fill">
+                                    <p style="height: 3px; color: #dfdfdf; font-size: 10px">
+                                        Year to date
+                                    </p>
+                                </div>
+
+                                <div class="p-0 d-flex justify-content-between" style="width: 100%">
+                                    <p class="" style="color: #741110; font-weight: 600; font-size: 18px">
+                                        Gifts Received
+                                    </p>
+                                    <span class="text-muted"><i class="material-icons">more_vert</i></span>
+                                </div>
+
+                                <div class="p-0 mt-4 flex-fill d-flex" style="width: 100%">
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start" style="
+                      font-size: 52px;
+                      font-weight: 500;
+                      width: 20%;
+                      height: 20px;
+                    ">
+                                        0
+                                    </div>
+                                    <div class="col-4 p-0 d-flex justify-content-flex-start align-items-start">
+                                        <p class="mb-0">declared</p>
+                                    </div>
+                                    <div class="col-4 ms-3 p-0 d-flex position-relative"
+                                        style="height: 100px; width: 120px">
+                                        <img class="position-absolute p-0 bottom-0 end-0"
+                                            src="../../../../assets/icons/dashboard-icons/gift-received.svg" alt="Icon"
+                                            style="height: 100px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THIRD COLUMN -->
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <div class="container card4">
+                    <div class="row p-0 mb-4">
+                        <div class="col-12 p-0 d-flex align-items-center">
+                            <div class="d-flex p-0 align-items-center w-100">
+                                <img src="../../../../assets/icons/main-layout-icons/history.svg" class="pe-1 mt-1"
+                                    style="height: 20px" alt="" />
+                                <p class="flex-grow-1 pt-3 ms-1 fw-semibold" style="
+                    font-size: 20px;
+                    color: #570c0c !important;
+                    font-family: Roboto;
+                  ">
+                                    History
+                                </p>
+                                <i class="material-icons ml-3">more_vert</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="max-height: 40px">
+                        <div class="col-1 p-0">
+                            <img src="../../../../assets/icons/group-conflicts-icon.png"
+                                style="font-size: 20px; padding-right: 3px" />
+                        </div>
+                        <div class="col-8 p-0">
+                            <p style="
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  color: #133b3a;
+                  font-size: 15px;
+                  padding-top: 4px;
+                  padding-left: 3px;
+                  padding-right: 3px;
+                ">
+                                Tender Evaluation Committee
+                            </p>
+                        </div>
+                        <div class="col-3 p-0">
+                            <p style="padding-top: 4px; color: #bfbfbf; font-size: 11px">
+                                31/08/2022
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col p-0">
+                            <p style="color: #000000; font-size: 12px">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. S
+                                oluta cum cumque reiciendis minima molestias nam!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="max-height: 40px">
+                        <div class="col-1 p-0">
+                            <img src="../../../../assets/icons/gift-icon.png"
+                                style="font-size: 20px; padding-right: 3px" />
+                        </div>
+                        <div class="col-8 p-0">
+                            <p style="
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  color: #133b3a;
+                  font-size: 15px;
+                  padding-top: 4px;
+                  padding-left: 3px;
+                  padding-right: 3px;
+                ">
+                                Tender Evaluation Committee
+                            </p>
+                        </div>
+                        <div class="col-3 p-0">
+                            <p style="padding-top: 4px; color: #bfbfbf; font-size: 11px">
+                                31/08/2022
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col p-0">
+                            <p style="color: #000000; font-size: 12px">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. S
+                                oluta cum cumque reiciendis minima molestias nam!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

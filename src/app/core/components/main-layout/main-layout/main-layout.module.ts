@@ -34,6 +34,11 @@ import { TabsComponent } from 'app/core/features/admin/tabs/tabs.component';
 
 import { IntergrityAwardAdminComponent } from 'app/core/features/admin/intergrity-award-admin/intergrity-award-admin.component';
 import { YearCalendarModule } from '@iomechs/angular-year-calendar';
+import { SuccessComponent } from 'app/core/features/common/success/success.component';
+import { AdminDashboardComponent } from 'app/core/features/admin/admin-dashboard/admin-dashboard.component';
+import { userInfo } from 'os';
+import { UserDashboardComponent } from 'app/core/features/user/user-dashboard/user-dashboard.component';
+
 
 
 
@@ -54,7 +59,11 @@ import { YearCalendarModule } from '@iomechs/angular-year-calendar';
       IntergrityAwardComponent,
       ReportsComponent,
       TabsComponent,
-      IntergrityAwardAdminComponent
+      IntergrityAwardAdminComponent,
+      SuccessComponent,
+      AdminDashboardComponent,
+      UserDashboardComponent
+    
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

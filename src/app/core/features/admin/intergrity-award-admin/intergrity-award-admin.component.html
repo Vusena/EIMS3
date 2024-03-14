@@ -6,24 +6,18 @@
         <div class="container card1">
           <div class="row">
             <div class="col-12 p-3">
-              <p
-                class="fw-semibold"
-                style="color: #741110; font-size: 20px; font-family: 'Roboto'"
-              >
+              <p class="fw-semibold" style="color: #741110; font-size: 20px; font-family: 'Roboto'">
                 KRA Staff List
               </p>
             </div>
 
             <div class="col-12 pt-1 ps-3">
-              <p
-                class=""
-                style="
+              <p class="" style="
                   color: #133b3a;
                   font-size: 15px;
                   font-weight: 600;
                   font-family: 'Roboto';
-                "
-              >
+                ">
                 Add staff to view their information
               </p>
             </div>
@@ -41,18 +35,8 @@
             <div class="row">
               <div class="col-12">
                 <div class="search-container">
-                  <i
-                    style="cursor: pointer"
-                    class="material-icons"
-                    (click)="onSubmit($event)"
-                    >search</i
-                  >
-                  <input
-                    type="text"
-                    placeholder="Search by P.No"
-                    [(ngModel)]="searchText"
-                    class="search-bar"
-                  />
+                  <i style="cursor: pointer" class="material-icons" (click)="onSubmit($event)">search</i>
+                  <input type="text" placeholder="Search by P.No" [(ngModel)]="searchText" class="search-bar" />
                 </div>
               </div>
             </div>
@@ -62,20 +46,13 @@
             <div class="col-12">
               <div class="line-container">
                 <div class="line-text">{{ specificName }}</div>
-                <i
-                  class="material-icons delete-icon"
-                  (click)="toggleTextVisibility()"
-                  >delete</i
-                >
+                <i class="material-icons delete-icon" (click)="toggleTextVisibility()">delete</i>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div
-              class="col ms-2 me-2"
-              style="background-color: #f2f2f2; border-radius: 10px"
-            >
+            <div class="col ms-2 me-2" style="background-color: #f2f2f2; border-radius: 10px">
               <div class="col mt-3 staff-details">
                 <p class="" style="border-bottom: 1px solid #ccc">
                   KRA Staff Details
@@ -83,37 +60,25 @@
               </div>
               <div class="col">
                 <div class="staff-details p-0">Name</div>
-                <p
-                  class="actual-details py-1"
-                  style="border-bottom: dotted 1px"
-                >
+                <p class="actual-details py-1" style="border-bottom: dotted 1px">
                   {{ specificName }}
                 </p>
               </div>
               <div class="col">
                 <div class="staff-details p-0">Staff Number</div>
-                <p
-                  class="actual-details py-1"
-                  style="border-bottom: dotted 1px"
-                >
+                <p class="actual-details py-1" style="border-bottom: dotted 1px">
                   {{ staff_number }}
                 </p>
               </div>
               <div class="col">
                 <div class="staff-details p-0">Department</div>
-                <p
-                  class="actual-details py-1"
-                  style="border-bottom: dotted 1px"
-                >
+                <p class="actual-details py-1" style="border-bottom: dotted 1px">
                   {{ department }}
                 </p>
               </div>
               <div class="col">
                 <div class="staff-details p-0">Region</div>
-                <p
-                  class="actual-details py-1"
-                  style="border-bottom: dotted 1px"
-                >
+                <p class="actual-details py-1" style="border-bottom: dotted 1px">
                   {{ region }}
                 </p>
               </div>
@@ -126,11 +91,8 @@
             </div>
             <form>
               <div class="mt-3 mb-2">
-                <button
-                  class="btn btn-rounded w-100 bg-transparent confirm-button"
-                  (click)="onConfirm()"
-                  [disabled]="!isConfirmationEnabled()"
-                >
+                <button class="btn btn-rounded w-100 bg-transparent confirm-button" (click)="onConfirm()"
+                  [disabled]="!isConfirmationEnabled()">
                   Confirm
                 </button>
               </div>
@@ -143,30 +105,19 @@
         <div class="container card3">
           <div class="row d-flex pe-0">
             <div class="col-md-9 p-0">
-              <p
-                class=" "
-                style="
+              <p class=" " style="
                   color: #741110;
                   font-size: 20px;
                   font-family: 'Roboto';
                   font-weight: 600;
-                "
-              >
+                ">
                 Nomination criteria
               </p>
             </div>
 
-            <div
-              class="col-md-3 p-0 flex-grow-1 warning"
-              style="background-color: #fbe4e4; max-height: 25px"
-            >
-              <div
-                style="background-color: #fbe4e4; line-height: 1"
-                class="p-1"
-              >
-                <i class="material-icons" style="color: #741110 !important"
-                  >warning</i
-                >
+            <div class="col-md-3 p-0 flex-grow-1 warning" style="background-color: #fbe4e4; max-height: 25px">
+              <div style="background-color: #fbe4e4; line-height: 1" class="p-1">
+                <i class="material-icons" style="color: #741110 !important">warning</i>
 
                 <div style="font-size: 12px">
                   1.Users in Nairobi region must nominate members from their
@@ -192,14 +143,11 @@
             <form (ngSubmit)="onNominate()">
               <div class="row mt-3 p-0">
                 <div class="col-12">
-                  <p
-                    class=""
-                    style="
+                  <p class="" style="
                       color: #133b3a;
                       font-size: 13px;
                       font-family: 'Roboto';
-                    "
-                  >
+                    ">
                     Does the staff display integrity and professionalism at all
                     times?
                   </p>
@@ -207,48 +155,33 @@
 
                 <div class="col-12 d-flex gap-2">
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         integrityAndProfessionalism === true
                           ? '2px solid #E12827'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      formControlName="integrityAndProfessionalism1"
-                      (click)="integrityAndProfessionalism = true"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px"
+                      formControlName="integrityAndProfessionalism1" (click)="integrityAndProfessionalism = true">
                       Yes
                     </button>
                   </div>
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         integrityAndProfessionalism === false
                           ? '2px solid #E12827'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      formControlName="integrityAndProfessionalism1"
-                      (click)="integrityAndProfessionalism = false"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px"
+                      formControlName="integrityAndProfessionalism1" (click)="integrityAndProfessionalism = false">
                       No
                     </button>
                   </div>
                 </div>
 
                 <div class="col-12 mt-3">
-                  <p
-                    class=""
-                    style="
+                  <p class="" style="
                       color: #133b3a;
                       font-size: 13px;
                       font-family: 'Roboto';
-                    "
-                  >
+                    ">
                     Does the staff accept responsibility for all decisions/
                     Actions taken?
                   </p>
@@ -256,134 +189,92 @@
 
                 <div class="col-12 d-flex gap-2">
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         acceptsResponsibility === true
                           ? '2px solid #E12827'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      formControlName="acceptsResponsibility1"
-                      (click)="acceptsResponsibility = true"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px" formControlName="acceptsResponsibility1"
+                      (click)="acceptsResponsibility = true">
                       Yes
                     </button>
                   </div>
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         acceptsResponsibility === false
                           ? '2px solid #E12827'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      (click)="acceptsResponsibility = false"
-                      formControlName="acceptsResponsibility1"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px" (click)="acceptsResponsibility = false"
+                      formControlName="acceptsResponsibility1">
                       No
                     </button>
                   </div>
                 </div>
 
                 <div class="col-12 mt-3">
-                  <p
-                    class=""
-                    style="
+                  <p class="" style="
                       color: #133b3a;
                       font-size: 13px;
                       font-family: 'Roboto';
-                    "
-                  >
+                    ">
                     Does the individual maintain open and truthful
                     communications?
                   </p>
                 </div>
                 <div class="col-12 d-flex gap-2">
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         maintainsOpenCommunications === true
                           ? '2px solid #E12827'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      formControlName="maintainsOpenCommunications1"
-                      (click)="maintainsOpenCommunications = true"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px"
+                      formControlName="maintainsOpenCommunications1" (click)="maintainsOpenCommunications = true">
                       Yes
                     </button>
                   </div>
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         maintainsOpenCommunications === false
                           ? '2px solid #E12827'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      formControlName="maintainsOpenCommunications1"
-                      (click)="maintainsOpenCommunications = false"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px"
+                      formControlName="maintainsOpenCommunications1" (click)="maintainsOpenCommunications = false">
                       No
                     </button>
                   </div>
                 </div>
 
                 <div class="col-12 mt-3">
-                  <p
-                    class=""
-                    style="
+                  <p class="" style="
                       color: #133b3a;
                       font-size: 13px;
                       font-family: 'Roboto';
-                    "
-                  >
+                    ">
                     Does the staff live KRA core values?
                   </p>
                 </div>
 
                 <div class="col-12 d-flex gap-2">
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         hasKRAValues === true
                           ? '2px solid #E12827'
                           : hasKRAValues === false
                           ? '1px solid #707070'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      formControlName="hasKRAValues1"
-                      (click)="hasKRAValues = true"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px" formControlName="hasKRAValues1"
+                      (click)="hasKRAValues = true">
                       Yes
                     </button>
                   </div>
                   <div class="col-md-2 col-3">
-                    <button
-                      type="button"
-                      class="btn btn-rounded"
-                      [style.border]="
+                    <button type="button" class="btn btn-rounded" [style.border]="
                         hasKRAValues === false
                           ? '2px solid #E12827'
                           : hasKRAValues === true
                           ? '1px solid #707070'
                           : '1px solid #707070'
-                      "
-                      style="background-color: #ffffff; font-size: 12px"
-                      formControlName="hasKRAValues1"
-                      (click)="hasKRAValues = false"
-                    >
+                      " style="background-color: #ffffff; font-size: 12px" formControlName="hasKRAValues1"
+                      (click)="hasKRAValues = false">
                       No
                     </button>
                   </div>
@@ -399,13 +290,8 @@
                       integrity, anti-corruption and National Values programs
                     </div>
                     <mat-form-field style="width: 100%; height: 180px">
-                      <textarea
-                        matInput
-                        placeholder="Type here"
-                        style="font-size: 13px"
-                        [(ngModel)]="contributionDescription"
-                        formControlName="contributionDescription1"
-                      ></textarea>
+                      <textarea matInput placeholder="Type here" style="font-size: 13px"
+                        [(ngModel)]="contributionDescription" formControlName="contributionDescription1"></textarea>
                     </mat-form-field>
                   </div>
                 </div>
@@ -413,37 +299,21 @@
 
               <div class="row mt-2 mb-4">
                 <div class="col-6">
-                  <button
-                    type="button"
-                    class="btn btn-rounded"
-                    (click)="resetForm()"
-                    style="
+                  <button type="button" class="btn btn-rounded" (click)="resetForm()" style="
                       background-color: #ffffff;
                       color: #e12827;
                       border: #e12827 1px solid;
                       font-size: 14px;
-                    "
-                  >
+                    ">
                     Clear
-                    <img
-                      src="./../../../assets/icons/main-layout-icons/clear-icon.svg"
-                      alt="Clear Icon"
-                    />
+                    <img src="./../../../assets/icons/main-layout-icons/clear-icon.svg" alt="Clear Icon" />
                   </button>
                 </div>
                 <div class="col-6">
-                  <button
-                    type="button"
-                    class="btn btn-rounded"
-                    style="background-color: #e12827; font-size: 14px"
-                    (click)="onNominate()"
-                  >
+                  <button type="button" class="btn btn-rounded" style="background-color: #e12827; font-size: 14px"
+                    (click)="onNominate()">
                     Nominate
-                    <img
-                      src="../../../../assets/icons/main-layout-icons/submit.svg"
-                      class=""
-                      alt="Nomibate"
-                    />
+                    <img src="../../../../assets/icons/main-layout-icons/submit.svg" class="" alt="Nomibate" />
                   </button>
                 </div>
               </div>

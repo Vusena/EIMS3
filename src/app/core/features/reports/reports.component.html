@@ -10,17 +10,16 @@
             <div class="row">
                 <div class="col-lg-9 col-md-6 col-sm-6">
                     <div class="container card1 p-0">
-
-                     <div class="calender">
-                        <yc-year-calendar>
-                            <!-- [loadingData]="isLoadingData"
-                            (viewYearChanged)="viewYearChangedHandler($event")
-                            (eventDayClicked)="eventDayClickHandler($event)"
-                            [ycConfig]="myCalendarConfig"
-                            [selectedDate]="currentDate"> -->
-                        </yc-year-calendar>
-                    </div>
-                    
+                        <div class="calender">
+                            <yc-year-calendar>
+                                [loadingData]="isLoadingData"
+                                (viewYearChanged)="viewYearChangedHandler($event)"
+                                (eventDayClicked)="eventDayClickHandler($event)"
+                                [ycConfig]="myCalendarConfig"
+                                [selectedDate]="currentDate"
+                                [eventStyles]="eventStyles"
+                              </yc-year-calendar>
+                        </div>
                     </div>
                 </div>
 
@@ -37,28 +36,47 @@
                                 each other.
                             </div>
 
-                            <div class="textfonts p-0 mt-3">Start Date</div>
-                            <mat-form-field appearance="outline" class="p-0 xyz">
-                                <input matInput [matDatepicker]="picker1" style="font-size: 13px; margin-left: 0" />
-                                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                                <mat-datepicker #picker1></mat-datepicker>
-                            </mat-form-field>
-
-                            <div class="textfonts p-0">Closing Date</div>
-                            <mat-form-field appearance="outline" class="p-0 xyz">
-                                <input matInput [matDatepicker]="picker1" style="font-size: 13px; margin-left: 0" />
-                                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                                <mat-datepicker #picker1></mat-datepicker>
-                            </mat-form-field>
-
-                            <div class="col-12 mt-3 p-0">
-                                <button type="button" class="btn btn-block btn-rounded buttonn"
-                                    style="background-color: #e12827; width:100%;" >
-                                    Submit
-                                    <img src="../../../../assets/icons/main-layout-icons/submit.svg" class="pb-1"
-                                        alt="Submit Icon" />
-                                </button>
+                            <div *ngIf="errorMessage " class="alert alert-danger px-2 py-1 mt-2">
+                                <p style="font-size: 12px">{{ errorMessage }}</p>
                             </div>
+
+                            <div class="textfonts p-0 mt-3">Start Date</div>
+
+                            <form [formGroup]="scheduleForm" (ngSubmit)="onDateSubmit()">
+                                
+                                <mat-form-field appearance="outline" class="p-0 xyz">
+                                  
+                                    <input matInput [matDatepicker]="startdate" formControlName="startDate"
+                                        style="font-size: 13px; margin-left: 0" />
+                                        <div class="validation"  *ngIf="scheduleForm.get('startDate').invalid && scheduleForm.get('startDate').touched">
+                                            This input is required
+                                          </div>
+                                    <mat-datepicker-toggle matIconSuffix [for]="startdate"></mat-datepicker-toggle>
+                                    <mat-datepicker #startdate></mat-datepicker>
+                                </mat-form-field>
+                             
+
+                                <div class="textfonts p-0">Closing Date</div>
+                                <mat-form-field appearance="outline" class="p-0 xyz">
+                                    <input matInput [matDatepicker]="closingDate" formControlName="closingDate"
+                                        style="font-size: 13px; margin-left: 0" />
+                                        <div class="validation"  *ngIf="scheduleForm.get('startDate').invalid && scheduleForm.get('startDate').touched">
+                                            This input is required
+                                          </div>
+                                    <mat-datepicker-toggle matIconSuffix [for]="closingDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #closingDate></mat-datepicker>
+                                </mat-form-field>
+
+                                <div class="col-12 mt-3 p-0">
+                                    <button type="button" class="btn btn-block btn-rounded buttonn"
+                                    [disabled]="scheduleForm.invalid"
+                                    style="background-color: #e12827; width: 100%" (click)="onDateSubmit()">
+                                        Submit
+                                        <img src="../../../../assets/icons/main-layout-icons/submit.svg" class="pb-1"
+                                            alt="Submit Icon" />
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

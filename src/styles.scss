@@ -16,9 +16,9 @@
 
 // STEPPER
 
-.mat-mdc-form-field{
-    height:50px;
-}
+// .mat-mdc-form-field{
+//     height:50px;
+// }
 
 .mat-mdc-tab .mdc-tab__text-label {
     color: #E12827 !important;
@@ -176,6 +176,9 @@
   .year-calendar__body__month__inner__week__day {
 
  }
+ .highlight-day {
+    background-color: yellow !important;
+  }
 
  @media (max-width: 960px) {
     .year-calendar__body__month {
