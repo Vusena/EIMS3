@@ -57,10 +57,6 @@ export class HttpService {
     return this.http.get(Environment.BASE_URL + url, { headers, params: queryParams });
   }
 
-//     // SEARCH BY NAME OR PHONE NO
-//     getSearchedUser(url: string, params?: { [key: string]: string }): Observable<any> {
-//       const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getAuthorizationToken()}`);
-//       return this.http.get(Environment.BASE_URL + url, { headers })
-// }
+
 
 }

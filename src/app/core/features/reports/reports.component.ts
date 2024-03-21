@@ -16,15 +16,25 @@ import { SuccessComponent } from '../common/success/success.component';
 export class ReportsComponent implements OnInit {
 
   errorMessage:any;
-  startDate:any;
-  endDate:any;
+ startDate:any;
+  closingDate:any; 
+  searchControl = new FormControl('');
+  alertMessage:any;
+  nominees:any;
+  nomineestaff:any;
+  participants:any;
+  total_votes:any;
+  scheduleForm: FormGroup;
+  dataSource:any;
+  testt:any="Eunice";
+  region:any;
+  department:any;
+  votes:any;
   
 
   constructor(private httpService:HttpService, private datePipe: DatePipe, private fb: FormBuilder,
     private dialog: MatDialog){}
 
-  scheduleForm: FormGroup;
-  dataSource:any;
 
 
   ngOnInit(): void {
@@ -32,17 +42,11 @@ export class ReportsComponent implements OnInit {
       startDate: ['',  Validators.required], // You can set initial values here if needed
       closingDate: ['', Validators.required]
     });
-    this.getScheduleData()
+    this. onDateExtend();
+    this.getReports();
+    this.getAllNominations();
   }
 
-  successAlert(): void {
-    this.dialog.open(SuccessComponent, {
-      width: '120vh',
-      height: '100vw',
-      panelClass: 'full-screen',
-      
-    });
-      }
   onDateSubmit() {
     if (this.scheduleForm.valid) {
       console.log('Raw form values:', this.scheduleForm.value);
@@ -50,7 +54,6 @@ export class ReportsComponent implements OnInit {
       console.log('Transformed start date:', startDate);
       const endDate = this.datePipe.transform(this.scheduleForm.value.closingDate, 'yyyy-MM-dd');
       console.log('Transformed closing date:', endDate);
-  
        const scheduleFormm = {
         startDate,
         endDate,
@@ -62,8 +65,9 @@ export class ReportsComponent implements OnInit {
           console.log(res)
           // Handle successful response here
           console.log("Response", res)
-          this.successAlert()
+          // this.successAlert()
           this.scheduleForm.reset();
+          this.alertMessage=res.body.description
         },
         error: (err) => {
           this.errorMessage=err.error.description;
@@ -71,34 +75,32 @@ export class ReportsComponent implements OnInit {
           // Handle error here
         }
       });
-    
     }
   }
 
-  getScheduleData(): void {
+  onDateExtend(): void {
     this.httpService.get(ApiEndPoints.AWARD_SCHEDULES_SHOW).subscribe({
       next: (res) => {
         console.log(res)
        this.dataSource=res.data
        console.log(this.dataSource);
        this.startDate = res.data.startDate;
-      this.endDate = res.data.endDate;
-    
-      //  this.scheduleForm.patchValue({
-      //   startDatee: this.datePipe.transform(res.data.startDate, 'dd-MM-yyyy'),
-      //   closingDatee: this.datePipe.transform(res.data.endDate, 'dd-MM-yyyy')
-      // });
-
+      this.closingDate = res.data.endDate;
+  
       this.startDate = this.datePipe.transform(res.data.startDate, 'dd-MM-yyyy');
-      this.endDate = this.datePipe.transform(res.data.endDate, 'dd-MM-yyyy');
+      this.closingDate = this.datePipe.transform(res.data.endDate, 'dd-MM-yyyy');
+
      console.log('startDate:', this.startDate);
-      console.log('endDate:', this.endDate);
+      console.log('closingDate:', this.closingDate);
 
-
-      console.log(this.datePipe.transform(res.data.startDate, 'dd-MM-yyyy'));
-      console.log(this.datePipe.transform(res.data.endDate, 'dd-MM-yyyy'));
-      console.log('New schedule form ', this.scheduleForm)
-     
+   console.log(this.scheduleForm)
+ 
+      this.scheduleForm.patchValue({
+        startDate: this.startDate,
+        closingDate: this.closingDate,
+        
+    });
+    console.log(this.scheduleForm)
       },
       error: (error) => {
       
@@ -107,44 +109,63 @@ export class ReportsComponent implements OnInit {
     });
   }
 
-  // dayClass = (date: Date): string => {
-  //   const startDate = new Date(this.startDate);
-  //   const endDate = new Date(this.endDate);
-  //   const day = new Date(date);
-  
-  //   console.log('Checking date:', date);
-  //   console.log('Starting Date:', startDate);
-  //   console.log('Ending Date:', endDate);
-  
-  //   // Check if the day is between startDate and endDate
-  //   if (day >= startDate && day <= endDate) {
-  //     console.log('Highlighting day:', date);
-  //     // Return a CSS class to highlight the day
-  //     return 'highlight-day';
-  //   }
-  
-  //   // Return an empty string for all other days
-  //   return '';
-  // }
 
-  // votingPeriod = {
-  //   startDatee: new Date(2021, 9, 1), // October 1, 2021
-  //   endDatee: new Date(2021, 9, 15) // October 15, 2021
-  //   };
+  // GETTING ALL REPORTS
+  getReports(): void {
+    this.httpService.get(ApiEndPoints.AWARD_NOMINATION_REPORTS_nominees).subscribe({
+      next: (res) => {
+  // console.log(res)
+  this.nominees=res.count
+  // console.log(this.nominees)
+      },
+      error: (error) => {
+        console.error("There was an error!", error);
+      },
+    });
 
-  //   eventStyles(date) {
-  //     // Define the styles for the voting period
-  //     if (date >= this.votingPeriod.startDatee && date <= this.votingPeriod.endDatee) {
-  //     // If the date is within the voting period, apply some styles
-  //     return {
-  //     backgroundColor: 'yellow',
-  //     color: 'black'
-  //     };
-  //     } else {
-  //     // Otherwise, return an empty object
-  //     return {};
-  //     }
-  //     }
+    this.httpService.get(ApiEndPoints.AWARD_NOMINATION_REPORTS_participants).subscribe({
+      next: (res) => {
+        // console.log(res)
+        this.participants=res.count
+        // console.log(this.participants)
+            },
+            error: (error) => {
+              console.error("There was an error!", error);
+            },
+    })
+
+    this.httpService.get(ApiEndPoints.AWARD_NOMINATION_REPORTS_participants).subscribe({
+      next: (res) => {
+        // console.log(res)
+        this.total_votes=res.count
+        // console.log(this.total_votes)
+            },
+            error: (error) => {
+              console.error("There was an error!", error);
+            },
+    })
+  }
+
+getAllNominations(){
+  this.httpService.get(ApiEndPoints.AWARD_NOMINATION_INDEX).subscribe({
+    next: (res) => {
+      this.dataSource = res.data.content; 
+      console.log(res)
+      console.log('dataSource', this.dataSource)
+
+      this.dataSource.forEach(item => {
+        // Extracting variables from each item
+        this.region = item.region;
+        this.department = item.department;
+        this.nomineestaff=item.staff
+        this.votes=item.count
   
-  
+         });
+    },
+    error: (error) => {
+    
+      console.error("There was an error!", error);
+    },
+  });
+}
 }

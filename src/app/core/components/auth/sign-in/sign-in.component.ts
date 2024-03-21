@@ -50,7 +50,6 @@ export class SignInComponent implements OnInit {
         console.log('USER', response.body.data.staffNo)
         console.log('ROLES', response.body.data.roles)
         console.log('Roles:', localStorage.getItem('ROLES'));
-       
         // Navigate to dashboard or any other route upon successful login
         this.router.navigate(["/dashboard"]);
       },

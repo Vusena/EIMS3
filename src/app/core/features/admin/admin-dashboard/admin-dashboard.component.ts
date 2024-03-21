@@ -31,9 +31,13 @@ export class AdminDashboardComponent implements OnInit {
   foundRole: any;
   isCheckedPriviledge: boolean = false;
 
-  userId: any;
-  roleId: any;
-  privilegesId: any;
+  status_code: any;
+  alertMessage: string;
+  errorMessage: string;
+   privileges:any[];
+
+  isRequestSuccessful: boolean = false;
+
 
   constructor(private httpService: HttpService) {
 
@@ -44,7 +48,8 @@ export class AdminDashboardComponent implements OnInit {
     this.getUserRoles();
     this.getUserPriviledges();
     this.getRolesAndPrivileges();
-
+    
+    
     this.searchControl.valueChanges
       .pipe(startWith(''), debounceTime(300), distinctUntilChanged())
       .subscribe((searchInput: string) => {
@@ -155,7 +160,8 @@ export class AdminDashboardComponent implements OnInit {
     this.selectedUser = result;
     console.log('selectedUser', this.selectedUser);
     this.isUserSelected = true;
-    this.addMember(this.selectedUser);
+        this.addMember(this.selectedUser);
+        
 
     if (this.selectedUser.roles && this.selectedUser.roles.length > 0) {
       // Iterate over each role in selectedUser.roles
@@ -165,23 +171,29 @@ export class AdminDashboardComponent implements OnInit {
         // Log the foundRole
         console.log('foundRole', this.foundRole);
         // Do further processing with foundRole if needed
+
         if (this.foundRole) {
           this.foundRole.isSelected = true;
         }
+        this.privileges = this.foundRole.privileges.map(privilege => privilege.id);
+        console.log('privileges', this.privileges);
         // Iterate over privileges of foundRole
         for (const privilege of this.foundRole.privileges) {
           // Set the isChecked property of each privilege to true
           privilege.isCheckedPriviledge = true;
         }
       }
+ 
     } else {
       console.log('No roles found for selectedUser');
     }
-
+   
   }
 
   addMember(seletedUser: any) {
-    this.members.push(seletedUser);
+    this.members = [];
+  // Add the new user to the members array
+      this.members.push(seletedUser);
     // this.selectedUser = null;
     console.log('members', this.members)
   }
@@ -193,20 +205,66 @@ export class AdminDashboardComponent implements OnInit {
     this.selectedUser = [];
     this.filteredResults = [];
   }
+
+
   // SUBMITTING TO THE SERVER
 
   onSubmitRoleAssignee() {
     if (this.selectedUser && this.foundRole) {
-
-      const roleData = {
+           const roleData = {
         userId: this.selectedUser.id,
         roleId: this.foundRole.id,
-        privileges: this.foundRole.privileges.map(privilege => privilege.id)
-      };
+        privileges: this.privileges,
 
-      console.log(roleData)
+      };
+      console.log('roleData', roleData)
+   
+      this.httpService.postData(`${ApiEndPoints.ROLES_CREATE}`, roleData,)
+        .subscribe({
+          next: (res) => {
+            this.status_code = res.status;
+            console.log(res);
+            console.log('status code ', this.status_code);
+            if (this.status_code === 200) {
+              this.isRequestSuccessful = true;
+              this.alertMessage = res.body.description;
+              setTimeout(() => {
+                this.alertMessage = '';
+                this.onClearSearchInput();
+                // Reload the page after 3 seconds
+                setTimeout(() => {
+                  window.location.reload();
+                }, 2000);
+              }, 2000);
+              } else {
+            }
+          },
+          error: (err) => {
+            console.log(err.error.description);
+            this.errorMessage = err.error.description;
+          }
+        })
     }
   }
+
+
+  togglePrivilegeSelection(privilege): any[]{
+   console.log(this.privileges)
+   
+    const privilegeIndex = this.privileges.indexOf(privilege.id);
+    console.log('privilegeIndex', privilegeIndex)
+    if (privilegeIndex === -1 ) {
+       
+        this.privileges.push(privilege.id);
+        console.log('privileges', this.privileges)
+    } 
+    else {
+        this.privileges.splice(privilegeIndex, 1);
+        console.log('slice privileges', this.privileges)
+    }
+    return this.privileges;
 }
 
+
+}
 

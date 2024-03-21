@@ -17,7 +17,8 @@
   }
   
   .card1 {
-    max-height: 687px;
+    min-height: 684px !important;
+    // max-height: 675px !important;
     background-color: #FFFFFF;
     border: 1px solid #EFEFEF;
     border-radius: 15px;
@@ -56,7 +57,6 @@
     border-bottom: 1px solid #ccc;
     width: 100%;
   }
-  
   .material-icons {
     margin-right: 5px;
     color: #BFBFBF; 
@@ -70,19 +70,28 @@
     box-sizing: border-box;
   }
   
-  .line-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
+  // .line-container {
+  //   // display: flex;
+  //   // align-items: center;
+  //   // justify-content: space-between;
+  //   // border-bottom: 1px solid #ccc;
+  //   // width: 100%;
+    
+  // }
+
+  .line-text ul {
+    list-style-type: none; /* Removes bullet points */
   }
   
   .line-text {
     margin-right: auto;
     padding: 10px;
-    
-  }
+     }
+
+  .line-textt{
+    list-style: none;
+    padding:0;
+     }
   .line-text.active {
     background-color: #c71212;
   }
@@ -90,6 +99,7 @@
   .delete-icon {
     color: #BFBFBF;
     cursor: pointer;
+  
   }
   
   
@@ -251,6 +261,9 @@
   background-color: #741110;
   color: white;
   /* Add any other styles for highlighting */
+}
+.default{
+  background-color:none;
 }
 
 

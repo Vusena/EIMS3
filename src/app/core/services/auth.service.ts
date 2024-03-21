@@ -19,7 +19,6 @@ export class AuthService {
   private apiUrl = Environment.BASE_URL;
   public redirectUrl = "/dashboard";
 
-
   
   constructor(private http: HttpClient) { }
 

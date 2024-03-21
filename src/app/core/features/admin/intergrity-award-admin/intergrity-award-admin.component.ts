@@ -33,7 +33,7 @@ export class IntergrityAwardAdminComponent {
   maintainsOpenCommunications: boolean = null;
   hasKRAValues: boolean | null = null; // Initialize to null
   contributionDescription: string = '';
-  scheduleId=1;
+  
   nomineeError:"";
 
  
@@ -112,7 +112,6 @@ export class IntergrityAwardAdminComponent {
       communication: this.convertToNumber(this.maintainsOpenCommunications),
       coreValues:  this.convertToNumber(this.hasKRAValues),
       description: this.contributionDescription,
-      scheduleId: this.scheduleId,
       nominee: this.staff_number
     }
     console.log(nomineeData.nominee)
@@ -121,14 +120,18 @@ export class IntergrityAwardAdminComponent {
     .subscribe({
     next: (res) => {
      console.log(res)
+     this.alertMessage=res.body.description
+     this.successAlert();
+    //  window.location.reload();
+
       },
+
       error: (err) => {
         this.nomineeError=err.error.description;
         console.log(this.nomineeError)
       }
           })
-
-          this.successAlert()
+         
   }else if (!this.isConfirmed) {
     this.errorMessage = 'Please confirm your selection before nominating';
     console.log("Please confirm your selection before nominating")
@@ -145,8 +148,8 @@ export class IntergrityAwardAdminComponent {
 
   successAlert(): void {
     this.dialog.open(SuccessComponent, {
-      width: '100%',
-      height:'400px'
+      width: '500px',
+      height:'600px'
     });
       }
 

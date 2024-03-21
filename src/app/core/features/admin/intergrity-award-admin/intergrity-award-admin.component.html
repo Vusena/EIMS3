@@ -30,6 +30,9 @@
           <div *ngIf="alertMessage" class="alert alert-success px-2 py-1">
             <p style="font-size: 12px">{{ alertMessage }}</p>
           </div>
+          <div *ngIf="nomineeError" class="alert alert-danger px-2 py-1">
+            <p style="font-size: 12px">{{ nomineeError }}</p>
+          </div>
 
           <form (submit)="onSubmit($event)">
             <div class="row">
@@ -115,7 +118,7 @@
               </p>
             </div>
 
-            <div class="col-md-3 p-0 flex-grow-1 warning" style="background-color: #fbe4e4; max-height: 25px">
+            <!-- <div class="col-md-3 p-0 flex-grow-1 warning" style="background-color: #fbe4e4; max-height: 25px">
               <div style="background-color: #fbe4e4; line-height: 1" class="p-1">
                 <i class="material-icons" style="color: #741110 !important">warning</i>
 
@@ -134,7 +137,7 @@
                   4.The user cannot nominate more than once.
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- <div *ngIf="missingdetails" class=" row bg-danger" >
                         <p>{{missingdetails}}</p>
@@ -324,7 +327,32 @@
 
       <!-- COLUMN3 -->
       <div class="col-lg-3 col-md-12 col-sm-12">
-        <div class="container card4"></div>
+        <div class="container card4">
+
+          <div class="col-12 p-0 warning mt-4" style="background-color: #fbe4e4;">
+            <div style="background-color: #fbe4e4;" class="p-1">
+              <p class="p-0" style="font-size: 15px; font-weight: 600;">
+                <i class="material-icons" style="color: #741110 !important">warning</i>
+                PLEASE NOTE
+              </p>
+              <div style="font-size: 12px">
+                1. Users in Nairobi region must nominate members from their
+                department only.
+              </div>
+              <div style="font-size: 12px">
+                2. Users from other regions can nominate members from any
+                department within their region only.
+              </div>
+              <div style="font-size: 12px">
+                3. The user cannot nominate themselves.
+              </div>
+              <div style="font-size: 12px">
+                4. The user cannot nominate more than once.
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>

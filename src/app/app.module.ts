@@ -16,7 +16,6 @@ import { LayoutModule } from "./core/components/layout/layout.module";
 import { AuthComponent } from './core/components/auth/auth/auth.component';
 import { HttpClientModule } from "@angular/common/http";
 import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
-import { YearCalendarModule } from "@iomechs/angular-year-calendar";
 
 
 import player from 'lottie-web';
@@ -40,8 +39,7 @@ import player from 'lottie-web';
     // ToastrModule.forRoot(),
     HttpClientModule,
     RouterModule,
-    YearCalendarModule,
-
+   
   
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
