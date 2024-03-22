@@ -51,6 +51,9 @@ export class SignInComponent implements OnInit {
         console.log('ROLES', response.body.data.roles)
         console.log('Roles:', localStorage.getItem('ROLES'));
         // Navigate to dashboard or any other route upon successful login
+
+        const roles = response.body.data.roles.map((role: any) => role.name);
+        console.log(roles)
         this.router.navigate(["/dashboard"]);
       },
       (error) => {

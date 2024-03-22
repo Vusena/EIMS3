@@ -122,7 +122,7 @@ export class IntergrityAwardAdminComponent {
      console.log(res)
      this.alertMessage=res.body.description
      this.successAlert();
-    //  window.location.reload();
+     window.location.reload();
 
       },
 

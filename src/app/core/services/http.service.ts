@@ -56,7 +56,18 @@ export class HttpService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getAuthorizationToken()}`);
     return this.http.get(Environment.BASE_URL + url, { headers, params: queryParams });
   }
-
-
+//  GET PAGINATED API
+  getAllnominees(url: string, params?: { [key: string]: string }, pageNumber?: number, pageSize?: number): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getAuthorizationToken()}`);
+    let queryParams = {};
+    if (params) {
+      queryParams = { ...params };
+    }
+    if (pageNumber !== undefined && pageSize !== undefined) {
+      queryParams['page'] = pageNumber;
+      queryParams['size'] = pageSize;
+    }
+    return this.http.get(Environment.BASE_URL + url, { headers, params: queryParams });
+  }
 
 }

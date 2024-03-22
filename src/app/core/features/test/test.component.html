@@ -1,4 +1,5 @@
-<div class="container p-0">
+
+<!-- <div class="container p-0">
     <div class="d-flex align-items-center justify-content-between me-2 flex-column flex-sm-row">
         <nav class="navbar header-nav">
             <p class="dashboard-heading">Create a Schedule for Integrity Award Nominations</p>
@@ -7,9 +8,9 @@
         <button class="btn rounded-pill thisbutton" style="font-size: 12px;">
             Download Report
         </button>
-    </div>
+    </div> -->
 
-    <div class="container align-items-center">
+    <!-- <div class="container align-items-center">
         <div class="row justify-content-md-center">
             <div class="col-lg-9 col-md-9 ">
                 <div class="container card1 ">
@@ -105,55 +106,49 @@
                                     </form>
                                 </div>
                             </div>
-
-
+                            
+                           
                             <div class="container table mt-3">
-
-                                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+                                 -->
+                                <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table"> -->
                                     <!-- Nominees Column -->
-                                    <ng-container matColumnDef="nominees">
+                                    <!-- <ng-container matColumnDef="nominees">
                                         <th mat-header-cell *matHeaderCellDef>Nominees</th>
                                         <td mat-cell *matCellDef="let element">{{ element.staff }}</td>
-                                    </ng-container>
-                                    <!-- Votes Column -->
-                                    <ng-container matColumnDef="votes">
-                                        <th mat-header-cell *matHeaderCellDef>Votes</th>
-                                        <td mat-cell *matCellDef="let element">{{ element.count }}</td>
-                                    </ng-container>
+                                    </ng-container> -->
+                                         <!-- Votes Column -->
+                                         <!-- <ng-container matColumnDef="votes">
+                                            <th mat-header-cell *matHeaderCellDef>Votes</th>
+                                            <td mat-cell *matCellDef="let element">{{ element.count }}</td>
+                                        </ng-container> -->
 
                                     <!-- Region Column -->
-                                    <ng-container matColumnDef="region">
+                                    <!-- <ng-container matColumnDef="region">
                                         <th mat-header-cell *matHeaderCellDef>Region</th>
                                         <td mat-cell *matCellDef="let element">{{ element.region }}</td>
-                                    </ng-container>
-
+                                    </ng-container> -->
+                            
                                     <!-- Department Column -->
-                                    <ng-container matColumnDef="department">
+                                    <!-- <ng-container matColumnDef="department">
                                         <th mat-header-cell *matHeaderCellDef>Department</th>
                                         <td mat-cell *matCellDef="let element">{{ element.department }}</td>
-                                    </ng-container>
-
+                                    </ng-container> -->
+                            
                                     <!-- Define columns -->
-                                    <tr mat-header-row *matHeaderRowDef="['nominees','votes','region', 'department']">
-                                    </tr>
-                                    <tr mat-row
-                                        *matRowDef="let row; columns: ['nominees','votes','region', 'department']"></tr>
+                                    <!-- <tr mat-header-row *matHeaderRowDef="['nominees','votes','region', 'department']"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: ['nominees','votes','region', 'department']"></tr>
                                 </table>
-                                 <mat-paginator 
-                                 #paginator
-                                 (page)="handlePage($event)"
-                                 [length]=length
-                                [pageSize]=pageSize
-                                [pageSizeOptions]=pageSizeOptions> 
-                                </mat-paginator> 
                             </div>
+                            
                         </div>
+
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-               <!-- SECOND COLUMN -->
-               <div class="col-lg-3 col-md-12">
+
+            <!-- SECOND COLUMN -->
+            <!-- <div class="col-lg-3 col-md-12">
                 <div class="container card3">
                     <div class="row">
                         <div class="schedule mt-3 mb-2">Create Schedule</div>
@@ -175,13 +170,12 @@
 
                         <div class="textfonts p-0 mt-3">Start Date</div>
 
-                         <form [formGroup]="scheduleForm" (ngSubmit)="onDateSubmit()"> 
-                                         
-                            <mat-form-field appearance="outline" class="p-0 w-100">
+                        <form [formGroup]="scheduleForm" (ngSubmit)="onDateSubmit()">
+
+                            <mat-form-field appearance="outline" class="p-0 xyz">
                                 <input matInput [matDatepicker]="startdate" formControlName="startDate"
-                                    style="font-size: 13px; margin-left: 0"
-                                     />
-                                    
+                                    placeholder="Choose a date" [(ngModel)]="testt"
+                                    style="font-size: 13px; margin-left: 0" />
                                 <div class="validation"
                                     *ngIf="scheduleForm.get('startDate').invalid && scheduleForm.get('startDate').touched">
                                     This input is required
@@ -191,10 +185,10 @@
                             </mat-form-field>
 
                             <div class="textfonts p-0">Closing Date</div>
-                            <mat-form-field appearance="outline" class="p-0 w-100">
+                            <mat-form-field appearance="outline" class="p-0 xyz">
                                 <input matInput [matDatepicker]="closingDate" formControlName="closingDate"
                                     placeholder="Choose a date" style="font-size: 13px; margin-left: 0"
-                                  />
+                                    [value]="testt" />
                                 <div class="validation"
                                     *ngIf="scheduleForm.get('startDate').invalid && scheduleForm.get('startDate').touched">
                                     This input is required
@@ -212,6 +206,7 @@
                                         alt="Submit Icon" />
                                 </button>
                             </div>
+
                             <div class="col-12 mt-3 p-0">
                                 <button class="btn rounded-pill thisbutton" style="font-size: 14px; width: 100%"
                                     (click)="onDateExtend()">
@@ -220,12 +215,12 @@
                                         style="background-color: darkgrey; border-radius: 50%;" alt="Submit Icon" />
                                 </button>
                             </div>
-                        </form> 
-                        
-                       
+                        </form>
                     </div>
                 </div>
-        </div>
+            </div>
+
+
         </div>
     </div>
-</div>
+</div> -->
