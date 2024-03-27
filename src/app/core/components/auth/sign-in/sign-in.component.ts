@@ -54,7 +54,14 @@ export class SignInComponent implements OnInit {
 
         const roles = response.body.data.roles.map((role: any) => role.name);
         console.log(roles)
-        this.router.navigate(["/dashboard"]);
+        if (roles.includes('ADMIN')) {
+          console.log('User is an admin.');
+          this.router.navigate(['/dashboard']);
+        } else {
+          console.log('User is not an admin.');
+          // Assuming 'intergrity-award' is the route for regular users
+          this.router.navigate(['/intergrity-award']);
+        }
       },
       (error) => {
         this.isLoading = false;

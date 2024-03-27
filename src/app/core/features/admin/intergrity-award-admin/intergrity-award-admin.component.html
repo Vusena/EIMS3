@@ -284,6 +284,8 @@
                 </div>
               </div>
 
+           
+              
               <form [formGroup]="nomineeData">
                 <div class="row mt-3">
                   <div class="col-12 p-0">
@@ -292,7 +294,7 @@
                       exemplified/demonstrated their special contribution to the
                       integrity, anti-corruption and National Values programs
                     </div>
-                    <mat-form-field style="width: 100%; height: 180px">
+                    <mat-form-field style="width: 100%;">
                       <textarea matInput placeholder="Type here" style="font-size: 13px"
                         [(ngModel)]="contributionDescription" formControlName="contributionDescription1"></textarea>
                     </mat-form-field>
@@ -300,6 +302,9 @@
                 </div>
               </form>
 
+              
+              <!-- <app-custom-modal #nominateModal></app-custom-modal> -->
+              <!-- <button (click)="openModal(nominateModal)">MODAL</button> -->
               <div class="row mt-2 mb-4">
                 <div class="col-6">
                   <button type="button" class="btn btn-rounded" (click)="resetForm()" style="
@@ -309,14 +314,14 @@
                       font-size: 14px;
                     ">
                     Clear
-                    <img src="./../../../assets/icons/main-layout-icons/clear-icon.svg" alt="Clear Icon" />
+                    <img src="assets/icons/main-layout-icons/clear-icon.svg" alt="Clear Icon" />
                   </button>
                 </div>
                 <div class="col-6">
-                  <button type="button" class="btn btn-rounded" style="background-color: #e12827; font-size: 14px"
+                  <button type="button"  class="btn btn-rounded" style="background-color: #e12827; font-size: 14px"
                     (click)="onNominate()">
                     Nominate
-                    <img src="../../../../assets/icons/main-layout-icons/submit.svg" class="" alt="Nomibate" />
+                    <img src="assets/icons/main-layout-icons/submit.svg" class="" alt="Nomibate" />
                   </button>
                 </div>
               </div>

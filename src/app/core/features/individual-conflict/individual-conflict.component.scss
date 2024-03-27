@@ -269,7 +269,7 @@
   padding-top: 50px;
 }
 .info{
-  font-size:40px;
+  font-size:35px;
  padding-bottom:30px;
   text-align: center;
   color:rgb(9, 9, 9);
@@ -298,19 +298,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (max-width: 771px) {
   .xyz {
     width: 100%;
@@ -323,10 +310,21 @@
   .class-passport {
     width: 100%;
   }
+ 
+  .info {
+    font-size: 20px; 
+    padding-bottom:15px;
+  }
+  .notify1{
+    font-size:12px;
+    padding-top: 20px;
+  }
+  .notify2{
+    font-size:12px;
+  }
 }
 
 .btn-rounded {
   border-radius: 25px;
- 
   width: 100%;
 }

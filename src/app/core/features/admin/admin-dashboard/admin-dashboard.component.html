@@ -39,7 +39,7 @@
                                 </div>
                             </form>
 
-                            <div class="search-results-container shadow" *ngIf="!isRequestSuccessful">
+                            <div class="search-results-container shadow" *ngIf="!isRequestSuccessful && !isUserSelected">
                                 <div class="line-container">
                                     <ul>
                                         <li *ngFor="let result of filteredResults" class="line-textt"
@@ -185,7 +185,7 @@
                                     <div class="col-4 ms-3 p-0 d-flex position-relative"
                                         style="height: 100px; width: 120px">
                                         <img class="position-absolute p-0 bottom-0 end-0"
-                                            src="../../../../assets/icons/dashboard-icons/individualconflicts-icon.svg"
+                                            src="assets/icons/dashboard-icons/individualconflicts-icon.svg"
                                             alt="Icon" style="height: 100px" />
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@
                                     <div class="col-4 ms-3 p-0 d-flex position-relative"
                                         style="height: 100px; width: 120px">
                                         <img class="position-absolute p-0 bottom-0 end-0"
-                                            src="../../../../assets/icons/dashboard-icons/gifts-given-out.svg"
+                                            src="assets/icons/dashboard-icons/gifts-given-out.svg"
                                             alt="Icon" style="height: 100px" />
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@
                                     <div class="col-4 ms-3 p-0 d-flex position-relative"
                                         style="height: 100px; width: 120px">
                                         <img class="position-absolute p-0 bottom-0 end-0"
-                                            src="../../../../assets/icons/dashboard-icons/group-conflict.svg" alt="Icon"
+                                            src="assets/icons/dashboard-icons/group-conflict.svg" alt="Icon"
                                             style="height: 100px" />
                                     </div>
                                 </div>
@@ -293,7 +293,7 @@
                                     <div class="col-4 ms-3 p-0 d-flex position-relative"
                                         style="height: 100px; width: 120px">
                                         <img class="position-absolute p-0 bottom-0 end-0"
-                                            src="../../../../assets/icons/dashboard-icons/gift-received.svg" alt="Icon"
+                                            src="assets/icons/dashboard-icons/gift-received.svg" alt="Icon"
                                             style="height: 100px" />
                                     </div>
                                 </div>
@@ -309,7 +309,7 @@
                     <div class="row p-0 mb-4">
                         <div class="col-12 p-0 d-flex align-items-center">
                             <div class="d-flex p-0 align-items-center w-100">
-                                <img src="../../../../assets/icons/main-layout-icons/history.svg" class="pe-1 mt-1"
+                                <img src="assets/icons/main-layout-icons/history.svg" class="pe-1 mt-1"
                                     style="height: 20px" alt="" />
                                 <p class="flex-grow-1 pt-3 ms-1 fw-semibold" style="
                     font-size: 20px;
@@ -325,7 +325,7 @@
 
                     <div class="row" style="max-height: 40px">
                         <div class="col-1 p-0">
-                            <img src="../../../../assets/icons/group-conflicts-icon.png"
+                            <img src="assets/icons/group-conflicts-icon.png"
                                 style="font-size: 20px; padding-right: 3px" />
                         </div>
                         <div class="col-8 p-0">
@@ -359,7 +359,7 @@
 
                     <div class="row" style="max-height: 40px">
                         <div class="col-1 p-0">
-                            <img src="../../../../assets/icons/gift-icon.png"
+                            <img src="assets/icons/gift-icon.png"
                                 style="font-size: 20px; padding-right: 3px" />
                         </div>
                         <div class="col-8 p-0">

@@ -69,5 +69,9 @@ export class HttpService {
     }
     return this.http.get(Environment.BASE_URL + url, { headers, params: queryParams });
   }
-
+  
+  update(url: string, updatedData: any): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getAuthorizationToken()}`);
+    return this.http.put(Environment.BASE_URL + url, updatedData, { headers, observe: "response", })
+  }
 }

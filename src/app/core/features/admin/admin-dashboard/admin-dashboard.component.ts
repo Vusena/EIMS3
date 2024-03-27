@@ -204,6 +204,9 @@ export class AdminDashboardComponent implements OnInit {
     this.members = [];
     this.selectedUser = [];
     this.filteredResults = [];
+    // this.selectedRole = []; // Assuming selectedRoles is the array storing selected roles
+   
+
   }
 
 

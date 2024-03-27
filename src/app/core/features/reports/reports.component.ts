@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-// import { DatePipe } from '@angular/common';
+import * as XLSX from 'xlsx';
+import { WorkBook, WorkSheet } from 'xlsx';
 import { HttpService } from 'app/core/services/http.service';
 import { ApiEndPoints } from 'app/core/common/ApiEndPoints';
 // import { MatDialog } from '@angular/material/dialog';
@@ -24,6 +25,7 @@ export class ReportsComponent implements OnInit {
   alertMessage: any;
   nominees: any;
   nomineestaff: any;
+  staffNo:any;
   participants: any;
   total_votes: any;
   scheduleForm: FormGroup;
@@ -35,8 +37,10 @@ export class ReportsComponent implements OnInit {
   length: number;
   pageSize: number = 10;
   pageNumber: number = 0;
-  pageSizeOptions=[10, 20, 50, 100]
-
+  pageSizeOptions=[1,10, 20, 50, 100]
+  currentSchedule:any;
+  initialStartDate:any;
+  summaryReports:any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -58,6 +62,7 @@ export class ReportsComponent implements OnInit {
     this.onDateExtend();
     this.getReports();
     this.getAllNominations();
+  
   }
 
   onDateSubmit() {
@@ -81,6 +86,10 @@ export class ReportsComponent implements OnInit {
             // this.successAlert()
             this.scheduleForm.reset();
             this.alertMessage = res.body.description
+            setTimeout(() => {
+              this.alertMessage = ''; // Clear the alertMessage
+            }, 3000);
+            this.onDateExtend()
           },
           error: (err) => {
             this.errorMessage = err.error.description;
@@ -94,7 +103,10 @@ export class ReportsComponent implements OnInit {
   onDateExtend(): void {
     this.httpService.get(ApiEndPoints.AWARD_SCHEDULES_SHOW).subscribe({
       next: (res) => {
-        console.log(res)
+        console.log('This',res)
+        this.currentSchedule=res.data;
+        
+        console.log('currentSchedule', this.currentSchedule)
         this.startDate = res.data.startDate;
         this.closingDate = res.data.endDate;
         // This comes as an array of format YYYY/MM/DD
@@ -103,25 +115,60 @@ export class ReportsComponent implements OnInit {
 
         this.startDate = new Date(res.data.startDate);
         this.closingDate = new Date(res.data.endDate);
+        this.initialStartDate = this.startDate;
+        console.log('initialStartDate', this.initialStartDate)
+
         console.log('New startDate:', this.startDate);
         console.log('New closingDate:', this.closingDate);
-
         console.log(this.scheduleForm)
+
         this.scheduleForm.patchValue({
           startDate: this.startDate,
           closingDate: this.closingDate,
-
         });
-        // console.log("SheduleForm after patching",this.scheduleForm)
-        // console.log("SheduleForm after patching",this.scheduleForm.value)
-        // console.log("SheduleForm after patching",this.scheduleForm.value.startDate)
+        // Disable startDate input field
+      this.scheduleForm.get('startDate').disable();
       },
       error: (error) => {
-
         console.error("There was an error!", error);
       },
     });
+
+   }
+
+   // Method to handle form submission for extending schedule
+onExtendSubmit(): void {
+  if (this.scheduleForm.valid) {
+    const updatedStartDate = this.initialStartDate;
+    const updatedEndDate = this.scheduleForm.value.closingDate;
+    const id = this.currentSchedule.id;
+    
+    const updatedSchedule = {
+      startDate: this.datePipe.transform(updatedStartDate, 'yyyy-MM-dd'),
+      endDate: this.datePipe.transform(updatedEndDate, 'yyyy-MM-dd'),
+    };
+console.log('updatedSchedule', updatedSchedule)
+    this.httpService.update(`${ApiEndPoints.AWARD_SCHEDULES_UPDATE}/${id}`, updatedSchedule).subscribe({
+      next: (res) => {
+        console.log('Schedule extended successfully:', res);
+        this.alertMessage = res.body.description
+        setTimeout(() => {
+          this.alertMessage = ''; // Clear the alertMessage
+        }, 3000);
+        // Update UI or show success message
+        this.onDateExtend()
+      },
+      error: (error) => {
+        console.error("Error while extending schedule:", error);
+        // Handle error
+        this.errorMessage=error.error.description
+      },
+    });
   }
+
+  
+}
+
 
 
   // GETTING ALL REPORTS
@@ -161,35 +208,69 @@ export class ReportsComponent implements OnInit {
   }
 
   getAllNominations(): void {
-    const pagedddd = this.paginator;
-    console.log(pagedddd)
     this.httpService.getAllnominees(ApiEndPoints.AWARD_NOMINATION_INDEX, null, this.pageNumber, this.pageSize).subscribe({
       next: (res) => {
         this.dataSource = res.data.content;
         console.log(res)
-        // console.log('dataSource', this.dataSource)
+        console.log('dataSource', this.dataSource)
         this.length = res.data.totalElements;
 
         this.dataSource.forEach(item => {
           // Extracting variables from each item
           this.region = item.region;
           this.department = item.department;
-          this.nomineestaff = item.staff
-          this.votes = item.count
+          this.nomineestaff = item.name;
+          this.votes = item.count;
+          this.staffNo=item.staffNo;
 
         });
+        // this.exportExcel();
       },
       error: (error) => {
-
         console.error("There was an error!", error);
       },
     });
+  
   }
-
   handlePage(event: PageEvent) {
     this.pageNumber = event.pageIndex; // Update current page number
     this.pageSize = event.pageSize; // Update items per page
     this.getAllNominations(); // Fetch data for the new page
   }
 
+
+  exportExcell(){
+    this.httpService.get(ApiEndPoints.AWARD_NOMINATION_SUMMARY_REPORT).subscribe({
+      next: (res) => {
+        console.log('Exel', res)
+       this.summaryReports=res.data;
+       const data = this.summaryReports.map(item => {
+        return {
+          Nominee: item.name,
+          staffNo:item.staffNo,
+          Votes: item.count,
+          Region: item.region,
+          Department: item.department,
+          integrity:item.integrity,
+          responsibility: item.responsibility,
+          communication: item.communication,
+          coreValues:item.coreValues,
+          serviceLength:item.serviceLength
+         
+        };
+      });
+        console.log(data)
+         const ws: WorkSheet = XLSX.utils.json_to_sheet(data);
+        const wb: WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+        /* save to file */
+        XLSX.writeFile(wb, 'report.xlsx');
+      
+        return;
+      },
+      error: (error) => {
+        console.error("There was an error!", error);
+      },
+    });
+  }
 }

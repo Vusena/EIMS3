@@ -68,9 +68,25 @@
     width: 100%;
   
   }
-
   .buttonn {
     border-radius: 25px;
+  }
+
+  .buttonn:focus {
+    outline: 1px solid #E12827; /* Change the outline color and style as desired */
+  }
+
+  .buttonn:hover {
+    outline: 1px solid #E12827; /* Change the outline color and style as desired */
+  }
+
+
+  .thisbutton:focus {
+    outline: 1px solid #E12827; /* Change the outline color and style as desired */
+  }
+
+  .thisbutton:hover {
+    outline: 1px solid #E12827; /* Change the outline color and style as desired */
   }
   .validation{
     font-size: 12px;
